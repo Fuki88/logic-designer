@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Logic_Designer
 {
@@ -58,8 +59,8 @@ namespace Logic_Designer
 
             //default blif + kiss, pla, vhdl
             textSaveFile.Title = "Uložiť súbor";
-            textSaveFile.DefaultExt = "*.blif";
-            textSaveFile.Filter = "Blif|*.blif|Kiss|*.kiss|PLA|*.pla|VHDL|*.vhdl";
+            //textSaveFile.DefaultExt = "*.blif";
+            textSaveFile.Filter = "VHDL|*.vhd;*.vhdl|Blif|*.blif|Kiss|*.kiss|PLA|*.pla|Verilog|*.v|All files|*.*";
 
             //ukaz okno a skontroluj ci je def. nazov
             if (textSaveFile.ShowDialog() == System.Windows.Forms.DialogResult.OK &&
@@ -79,8 +80,8 @@ namespace Logic_Designer
             //jeden subor + default .blif + ostatne .blif, .kiss, .pla, .vhd, .vhdl
             textOpenFile.Title = "Otvoriť súbor";
             textOpenFile.Multiselect = false;
-            textOpenFile.DefaultExt = "*.blif";
-            textOpenFile.Filter = "Blif|*.blif|Kiss|*.kiss|PLA|*.pla|VHDL|*.vhd;*.vhdl";
+            //textOpenFile.DefaultExt = "*.blif";
+            textOpenFile.Filter = "VHDL|*.vhd;*.vhdl|Blif|*.blif|Kiss|*.kiss|PLA|*.pla|Verilog|*.v|All files|*.*";
 
             //ked je subor otvoreny
             if (textOpenFile.ShowDialog() == System.Windows.Forms.DialogResult.OK &&
@@ -88,6 +89,13 @@ namespace Logic_Designer
             {
                 //nacitat do rich text boxu subor v plain texte
                 this.numberedRichTextBox1.textRichTextBox1.LoadFile(textOpenFile.FileName, RichTextBoxStreamType.PlainText);
+
+                //z koncovky sa predurci pouzite zvyraznovanie syntaxe
+                string extension = Path.GetExtension(textOpenFile.FileName);
+                numberedRichTextBox1.setExtension(extension.Substring(1));
+
+                //zvyrazni sa cely text
+                numberedRichTextBox1.highLightSyntaxOnOpen();
             }
         }
 
