@@ -51,7 +51,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.numberedRichTextBox1 = new WindowsFormsApplication1.NumberedRichTextBox();
+            this.numberedRichTextBox1 = new Logic_Designer.NumberedRichTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.loadTextEditorModule = new System.Windows.Forms.OpenFileDialog();
@@ -321,7 +321,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(669, 373);
+            this.ClientSize = new System.Drawing.Size(974, 639);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -367,8 +367,8 @@
         private System.Windows.Forms.ToolStripMenuItem loadModuleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dragnDropEditorToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem verificationToolStripMenuItem1;
-        private Logic_Designer.NumberedRichTextBox textEditor;
-        private WindowsFormsApplication1.NumberedRichTextBox numberedRichTextBox1;
+        //private Logic_Designer.NumberedRichTextBox textEditor;
+        private Logic_Designer.NumberedRichTextBox numberedRichTextBox1;
         private System.Windows.Forms.OpenFileDialog loadTextEditorModule;
         public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripMenuItem aboutLogicDesignerToolStripMenuItem;
