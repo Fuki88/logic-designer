@@ -36,6 +36,8 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,6 +49,7 @@
             this.dragnDropEditorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.verificationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutLogicDesignerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -55,13 +58,12 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.loadTextEditorModule = new System.Windows.Forms.OpenFileDialog();
-            this.aboutLogicDesignerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.graf_editor1 = new Digi_graf_modul.Graf_editor();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -73,7 +75,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(669, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(974, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -144,6 +146,22 @@
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(39, 20);
             this.toolStripMenuItem2.Text = "Edit";
+            // 
+            // undoToolStripMenuItem
+            // 
+            this.undoToolStripMenuItem.Image = global::Logic_Designer.Properties.Resources.Undo_icon;
+            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.undoToolStripMenuItem.Text = "Undo";
+            this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
+            // 
+            // redoToolStripMenuItem
+            // 
+            this.redoToolStripMenuItem.Image = global::Logic_Designer.Properties.Resources.Redo_icon;
+            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.redoToolStripMenuItem.Text = "Redo";
+            this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -222,13 +240,20 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
+            // aboutLogicDesignerToolStripMenuItem
+            // 
+            this.aboutLogicDesignerToolStripMenuItem.Name = "aboutLogicDesignerToolStripMenuItem";
+            this.aboutLogicDesignerToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.aboutLogicDesignerToolStripMenuItem.Text = "About Logic Designer..";
+            this.aboutLogicDesignerToolStripMenuItem.Click += new System.EventHandler(this.aboutLogicDesignerToolStripMenuItem_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 351);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 617);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(669, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(974, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -246,7 +271,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(669, 327);
+            this.tabControl1.Size = new System.Drawing.Size(974, 593);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -255,7 +280,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(661, 301);
+            this.tabPage1.Size = new System.Drawing.Size(966, 567);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Text Editor";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -265,15 +290,16 @@
             this.numberedRichTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.numberedRichTextBox1.Location = new System.Drawing.Point(3, 3);
             this.numberedRichTextBox1.Name = "numberedRichTextBox1";
-            this.numberedRichTextBox1.Size = new System.Drawing.Size(655, 295);
+            this.numberedRichTextBox1.Size = new System.Drawing.Size(960, 561);
             this.numberedRichTextBox1.TabIndex = 0;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.graf_editor1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(661, 301);
+            this.tabPage2.Size = new System.Drawing.Size(966, 567);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Drag \'n Drop Editor";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -282,7 +308,7 @@
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(661, 301);
+            this.tabPage3.Size = new System.Drawing.Size(966, 567);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Verification";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -294,28 +320,16 @@
             this.loadTextEditorModule.Filter = "Logic Designer Text Editor Modules|*.dll|All files|*.*";
             this.loadTextEditorModule.Title = "Choose Text Module";
             // 
-            // aboutLogicDesignerToolStripMenuItem
+            // graf_editor1
             // 
-            this.aboutLogicDesignerToolStripMenuItem.Name = "aboutLogicDesignerToolStripMenuItem";
-            this.aboutLogicDesignerToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.aboutLogicDesignerToolStripMenuItem.Text = "About Logic Designer..";
-            this.aboutLogicDesignerToolStripMenuItem.Click += new System.EventHandler(this.aboutLogicDesignerToolStripMenuItem_Click);
-            // 
-            // undoToolStripMenuItem
-            // 
-            this.undoToolStripMenuItem.Image = global::Logic_Designer.Properties.Resources.Undo_icon;
-            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.undoToolStripMenuItem.Text = "Undo";
-            this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
-            // 
-            // redoToolStripMenuItem
-            // 
-            this.redoToolStripMenuItem.Image = global::Logic_Designer.Properties.Resources.Redo_icon;
-            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.redoToolStripMenuItem.Text = "Redo";
-            this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
+            this.graf_editor1.Location = new System.Drawing.Point(0, 0);
+            this.graf_editor1.ModelName = "untitled";
+            this.graf_editor1.ModelType = "Logic";
+            this.graf_editor1.Name = "graf_editor1";
+            this.graf_editor1.Size = new System.Drawing.Size(1462, 564);
+            this.graf_editor1.StateFirst = 0;
+            this.graf_editor1.StateSecond = 0;
+            this.graf_editor1.TabIndex = 0;
             // 
             // Form1
             // 
@@ -334,6 +348,7 @@
             this.statusStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -372,6 +387,7 @@
         private System.Windows.Forms.OpenFileDialog loadTextEditorModule;
         public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripMenuItem aboutLogicDesignerToolStripMenuItem;
+        private Digi_graf_modul.Graf_editor graf_editor1;
     }
 }
 
