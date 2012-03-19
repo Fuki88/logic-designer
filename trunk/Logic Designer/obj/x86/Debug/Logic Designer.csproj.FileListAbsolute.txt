@@ -28,3 +28,4 @@ D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Debug\Logic Designer.exe
 D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Debug\Logic Designer.pdb
 D:\work\Logic Designer\Logic Designer\obj\x86\Debug\Logic_Designer.AboutBox1.resources
 D:\work\Logic Designer\Logic Designer\obj\x86\Debug\Digi_graf_modul.Graf_editor.resources
+D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Debug\Digi_graf_modul.Graf_editor.resources
