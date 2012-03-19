@@ -27,7 +27,7 @@ namespace Logic_Designer
             initRegex();
         }
 
-        public static string syntaxFileName = "syntax.xml";
+        private const string syntaxFileName = "syntax.xml";
 
         public static List<syntaxLang> langSyntax = new List<syntaxLang>();
 
@@ -144,96 +144,110 @@ namespace Logic_Designer
             //MessageBox.Show(language);
         }
 
+
         //nacitat syntax zo syntax.xml a inicializovat prislusne regexi
         public static void initSyntaxGroup()
         {
-            //otvorit subor kde su jazyky
-            XmlTextReader xmlContent = new XmlTextReader(syntaxFileName);
-
-            //prejdem na prvy jazyk
-            while (xmlContent.ReadToFollowing("Jazyk"))
+            try
             {
-                //vytvorim si pomocne premenne (docasny objekt typu syntaxLang -> potom ho vlozim do listu)
-                syntaxLang tmpSyntax = new syntaxLang();
-                bool saveLanguage = true;
+                //otvorit subor kde su jazyky
+                XmlTextReader xmlContent = new XmlTextReader(syntaxFileName);
 
-                //nazov jazyka
-                xmlContent.MoveToFirstAttribute();
-                tmpSyntax.language = xmlContent.Value;
-
-                //skontrolujem ci uz nahodou nie je jazyk ulozeny
-                for (int i = 0; i < langSyntax.Count; i++)
+                //prejdem na prvy jazyk
+                while (xmlContent.ReadToFollowing("Jazyk"))
                 {
-                    if (langSyntax[i].language == tmpSyntax.language)
+                    //vytvorim si pomocne premenne (docasny objekt typu syntaxLang -> potom ho vlozim do listu)
+                    XmlReader inner = xmlContent.ReadSubtree();
+                    syntaxLang tmpSyntax = new syntaxLang();
+                    bool saveLanguage = true;
+
+                    //nazov jazyka
+                    xmlContent.MoveToFirstAttribute();
+                    tmpSyntax.language = xmlContent.Value;
+
+                    //skontrolujem ci uz nahodou nie je jazyk ulozeny
+                    for (int i = 0; i < langSyntax.Count; i++)
                     {
-                        saveLanguage = false;
-                        break;
+                        if (langSyntax[i].language == tmpSyntax.language)
+                        {
+                            saveLanguage = false;
+                            break;
+                        }
+                    }
+
+                    //ak este nie je jazyk ulozeny tak ho pridam
+                    if (saveLanguage == true)
+                    {
+                        //koncovka suboru
+                        if (inner.ReadToFollowing("Koncovka"))
+                        {
+                            tmpSyntax.extension = inner.ReadElementString();
+                           
+                            //klucove slova
+                            while (inner.ReadToFollowing("KlucoveSlova"))
+                            {
+                                xmlContent.MoveToFirstAttribute();
+                                switch (inner.Value)
+                                {
+
+                                    case "riadkovyKomentar":
+                                        tmpSyntax.riadkovyKomentar = inner.ReadElementString();
+                                        break;
+
+                                    case "komentarStart":
+                                        tmpSyntax.komentarStart = inner.ReadElementString();
+                                        break;
+
+                                    case "komentarKoniec":
+                                        tmpSyntax.komentarKoniec = inner.ReadElementString();
+                                        break;
+
+                                    case "skupina1":
+                                        
+                                    case "skupina2":
+                                        
+                                    case "skupina3":
+                                       
+                                    case "skupina4":
+                                       
+                                    case "skupina5":
+                                        
+                                    case "skupina6":
+                                        string tmpString = inner.ReadElementString();
+                                        //ak sa nachadza v klucovych slovach $ tak ho treba nahradit '\$' aby sa v regexe neskor escapol
+                                        tmpString = tmpString.Replace("$", "\\$");
+                                        tmpSyntax.keywords.Add(tmpString);
+                                        break;
+
+                                    default:
+                                        break;
+                                }
+                            }
+
+                            //vlozim nakoniec do globalneho listu vsetkych nacitanych jazykov
+                            langSyntax.Add(tmpSyntax);
+
+                            /*
+                            //pomocny vypis nacitaneho xml suboru
+                            string tmpStr2 = "";
+                            for (int i = 0; i < tmpSyntax.keywords.Count; i++)
+                            {
+                                tmpStr2 = tmpStr2 + "\n\n" + tmpSyntax.keywords[i];
+                            }
+                            MessageBox.Show(tmpSyntax.language + "\n\n" + tmpSyntax.extension + "\n\n" + tmpSyntax.riadkovyKomentar + "\n\n" + tmpSyntax.komentarStart + "\n\n" + tmpSyntax.komentarKoniec + "\n\n" + tmpStr2);
+                            */
+
+                            //nakoniec vlozim jazyk do listboxu1
+                            textComboBox1.Items.Add(tmpSyntax.language);
+                        }
                     }
                 }
-
-                //ak este nie je jazyk ulozeny tak ho pridam
-                if (saveLanguage == true)
-                {
-
-                    //koncovka suboru
-                    xmlContent.ReadToFollowing("Koncovka");
-                    tmpSyntax.extension = xmlContent.ReadElementString();
-
-                    //riadkovyKomentar
-                    xmlContent.ReadToFollowing("KlucoveSlova");
-                    tmpSyntax.riadkovyKomentar = xmlContent.ReadElementString();
-
-                    //komentarStart
-                    xmlContent.ReadToFollowing("KlucoveSlova");
-                    tmpSyntax.komentarStart = xmlContent.ReadElementString();
-
-                    //komentarKoniec
-                    xmlContent.ReadToFollowing("KlucoveSlova");
-                    tmpSyntax.komentarKoniec = xmlContent.ReadElementString();
-
-                    //6 skupin syntaxe
-                    for (int i = 0; i < 6; i++)
-                    {
-                        xmlContent.ReadToFollowing("KlucoveSlova");
-                        string tmpString = xmlContent.ReadElementString();
-
-                        //ak sa nachadza v klucovych slovach $ tak ho treba nahradit '\$' aby sa v regexe neskor escapol
-                        tmpString = tmpString.Replace("$", "\\$");
-                        tmpSyntax.keywords.Add(tmpString);
-                    }
-
-                    //vlozim nakoniec do globalneho listu vsetkych nacitanych jazykov
-                    langSyntax.Add(tmpSyntax);
-
-                    /*
-                    //pomocny vypis nacitaneho xml suboru
-                    string tmpStr = "";
-                    for (int i = 0; i < tmpSyntax.keywords.Count; i++)
-                    {
-                        tmpStr = tmpStr + "\n\n" + tmpSyntax.keywords[i];
-                    }
-                    MessageBox.Show(tmpSyntax.language + "\n\n" + tmpSyntax.extension + "\n\n" + tmpSyntax.riadkovyKomentar + "\n\n" + tmpSyntax.komentarStart + "\n\n" + tmpSyntax.komentarKoniec + "\n\n" + tmpStr);
-                    */
-
-                    //nakoniec vlozim jazyk do listboxu1
-                    textComboBox1.Items.Add(tmpSyntax.language);
-                }
             }
-
-
-            /*
-            //dokym nenarazim na spravnu skupinu (slova syntaxe) tak prechadzam klucove slova
-            do
+            catch (Exception es)
             {
-                xmlContent.ReadToFollowing("KlucoveSlova");
-                xmlContent.MoveToFirstAttribute();
-                name = xmlContent.Value;
+                //return false;
+                MessageBox.Show(es.Message);
             }
-            while (!name.Equals(keywordGroup) && name.Length != 0);
-
-            output = xmlContent.ReadElementString();
-            //MessageBox.Show(@"\b(" + output + ")"+@"\b");
-             */
         }
 
         //ziskat obsah skupiny z objektov langSyntax na zaklade globalnej premennej extension 
