@@ -54,11 +54,11 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.numberedRichTextBox1 = new Logic_Designer.NumberedRichTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.loadTextEditorModule = new System.Windows.Forms.OpenFileDialog();
-            this.graf_editor1 = new Digi_graf_modul.Graf_editor();
+            this.numberedRichTextBox1 = new Logic_Designer.NumberedRichTextBox();
+            this.graf_modul1 = new Digi_graf_modul.graf_modul();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -207,12 +207,14 @@
             this.loadModuleToolStripMenuItem,
             this.dragnDropEditorToolStripMenuItem1,
             this.verificationToolStripMenuItem1});
+            this.modulesToolStripMenuItem.Enabled = false;
             this.modulesToolStripMenuItem.Name = "modulesToolStripMenuItem";
             this.modulesToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.modulesToolStripMenuItem.Text = "Load Modules";
             // 
             // loadModuleToolStripMenuItem
             // 
+            this.loadModuleToolStripMenuItem.Enabled = false;
             this.loadModuleToolStripMenuItem.Name = "loadModuleToolStripMenuItem";
             this.loadModuleToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.loadModuleToolStripMenuItem.Text = "Text Editor";
@@ -285,17 +287,9 @@
             this.tabPage1.Text = "Text Editor";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // numberedRichTextBox1
-            // 
-            this.numberedRichTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numberedRichTextBox1.Location = new System.Drawing.Point(3, 3);
-            this.numberedRichTextBox1.Name = "numberedRichTextBox1";
-            this.numberedRichTextBox1.Size = new System.Drawing.Size(960, 561);
-            this.numberedRichTextBox1.TabIndex = 0;
-            // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.graf_editor1);
+            this.tabPage2.Controls.Add(this.graf_modul1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -320,16 +314,25 @@
             this.loadTextEditorModule.Filter = "Logic Designer Text Editor Modules|*.dll|All files|*.*";
             this.loadTextEditorModule.Title = "Choose Text Module";
             // 
-            // graf_editor1
+            // numberedRichTextBox1
             // 
-            this.graf_editor1.Location = new System.Drawing.Point(0, 0);
-            this.graf_editor1.ModelName = "untitled";
-            this.graf_editor1.ModelType = "Logic";
-            this.graf_editor1.Name = "graf_editor1";
-            this.graf_editor1.Size = new System.Drawing.Size(1462, 564);
-            this.graf_editor1.StateFirst = 0;
-            this.graf_editor1.StateSecond = 0;
-            this.graf_editor1.TabIndex = 0;
+            this.numberedRichTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numberedRichTextBox1.Location = new System.Drawing.Point(3, 3);
+            this.numberedRichTextBox1.Name = "numberedRichTextBox1";
+            this.numberedRichTextBox1.Size = new System.Drawing.Size(960, 561);
+            this.numberedRichTextBox1.TabIndex = 0;
+            // 
+            // graf_modul1
+            // 
+            this.graf_modul1.Location = new System.Drawing.Point(0, 3);
+            this.graf_modul1.ModelName = "untitled";
+            this.graf_modul1.ModelType = "Logic";
+            this.graf_modul1.Name = "graf_modul1";
+            this.graf_modul1.Size = new System.Drawing.Size(963, 561);
+            this.graf_modul1.StateFirst = 0;
+            this.graf_modul1.StateSecond = 0;
+            this.graf_modul1.TabIndex = 1;
+            this.graf_modul1.Load += new System.EventHandler(this.graf_modul1_Load);
             // 
             // Form1
             // 
@@ -387,7 +390,7 @@
         private System.Windows.Forms.OpenFileDialog loadTextEditorModule;
         public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripMenuItem aboutLogicDesignerToolStripMenuItem;
-        private Digi_graf_modul.Graf_editor graf_editor1;
+        public Digi_graf_modul.graf_modul graf_modul1;
     }
 }
 

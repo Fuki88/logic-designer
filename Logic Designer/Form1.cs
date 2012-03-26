@@ -135,5 +135,11 @@ namespace Logic_Designer
             about.Show();
         }
 
+        private void graf_modul1_Load(object sender, EventArgs e)
+        {
+            graf_modul1.BringToFront();
+            graf_modul1.Show();
+        }
+
     }
 }

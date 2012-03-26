@@ -27,3 +27,4 @@ D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Release\Logic_Designer.Propertie
 D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Release\GenerateResource.read.1.tlog
 D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Release\GenerateResource.write.1.tlog
 >>>>>>> .r6
+D:\work\Logic Designer\Logic Designer\obj\x86\Release\Digi_graf_modul.Graf_editor.resources
