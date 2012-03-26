@@ -65,22 +65,22 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="graf_module\Class1.cs" />
-    <Compile Include="graf_module\Connection.cs">
+    <Compile Include="graf_modul\Class1.cs" />
+    <Compile Include="graf_modul\Connection.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="graf_module\Graf_editor.cs">
+    <Compile Include="graf_modul\graf_modul.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="graf_module\Graf_editor.designer.cs">
-      <DependentUpon>Graf_editor.cs</DependentUpon>
+    <Compile Include="graf_modul\graf_modul.designer.cs">
+      <DependentUpon>graf_modul.cs</DependentUpon>
     </Compile>
-    <Compile Include="graf_module\frmNew.cs" />
-    <Compile Include="graf_module\NodeCtrl.cs">
+    <Compile Include="graf_modul\frmNew.cs" />
+    <Compile Include="graf_modul\NodeCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="graf_module\Port.cs" />
-    <Compile Include="graf_module\tmp_Node.cs" />
+    <Compile Include="graf_modul\Port.cs" />
+    <Compile Include="graf_modul\tmp_Node.cs" />
     <Compile Include="NumberedRichTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -95,8 +95,8 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="graf_module\Graf_editor.resx">
-      <DependentUpon>Graf_editor.cs</DependentUpon>
+    <EmbeddedResource Include="graf_modul\graf_modul.resx">
+      <DependentUpon>graf_modul.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NumberedRichTextBox.resx">
       <DependentUpon>NumberedRichTextBox.cs</DependentUpon>
