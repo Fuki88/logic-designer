@@ -29,3 +29,17 @@ D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Debug\Logic Designer.pdb
 D:\work\Logic Designer\Logic Designer\obj\x86\Debug\Logic_Designer.AboutBox1.resources
 D:\work\Logic Designer\Logic Designer\obj\x86\Debug\Digi_graf_modul.Graf_editor.resources
 D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Debug\Digi_graf_modul.Graf_editor.resources
+C:\skola\Timak\PROJEKT\Logic Designer\obj\x86\Debug\Logic Designer.exe
+C:\skola\Timak\PROJEKT\Logic Designer\obj\x86\Debug\Logic Designer.pdb
+C:\skola\Timak\PROJEKT\Logic Designer\bin\Debug\Logic Designer.exe
+C:\skola\Timak\PROJEKT\Logic Designer\bin\Debug\Logic Designer.pdb
+C:\skola\Timak\PROJEKT\Logic Designer\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\skola\Timak\PROJEKT\Logic Designer\obj\x86\Debug\Logic_Designer.AboutBox1.resources
+C:\skola\Timak\PROJEKT\Logic Designer\obj\x86\Debug\Logic_Designer.Form1.resources
+C:\skola\Timak\PROJEKT\Logic Designer\obj\x86\Debug\Digi_graf_modul.graf_modul.resources
+C:\skola\Timak\PROJEKT\Logic Designer\obj\x86\Debug\Logic_Designer.NumberedRichTextBox.resources
+C:\skola\Timak\PROJEKT\Logic Designer\obj\x86\Debug\Logic_Designer.Properties.Resources.resources
+C:\skola\Timak\PROJEKT\Logic Designer\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\skola\Timak\PROJEKT\Logic Designer\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\skola\Timak\PROJEKT\Logic Designer\obj\x86\Debug\GenerateResource.write.342.tlog
+C:\skola\Timak\PROJEKT\Logic Designer\obj\x86\Debug\GenerateResource.write.367.tlog
