@@ -59,11 +59,13 @@
             this.graf_modul1 = new Digi_graf_modul.graf_modul();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.loadTextEditorModule = new System.Windows.Forms.OpenFileDialog();
+            this.verifikacia1 = new Logic_Designer.verifikacia.verifikacia();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -321,6 +323,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.verifikacia1);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(966, 567);
@@ -334,6 +337,14 @@
             this.loadTextEditorModule.FileName = "loadTextEditorModule";
             this.loadTextEditorModule.Filter = "Logic Designer Text Editor Modules|*.dll|All files|*.*";
             this.loadTextEditorModule.Title = "Choose Text Module";
+            // 
+            // verifikacia1
+            // 
+            this.verifikacia1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.verifikacia1.Location = new System.Drawing.Point(0, 0);
+            this.verifikacia1.Name = "verifikacia1";
+            this.verifikacia1.Size = new System.Drawing.Size(966, 567);
+            this.verifikacia1.TabIndex = 0;
             // 
             // Form1
             // 
@@ -353,6 +364,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -392,6 +404,7 @@
         public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripMenuItem aboutLogicDesignerToolStripMenuItem;
         public Digi_graf_modul.graf_modul graf_modul1;
+        private verifikacia.verifikacia verifikacia1;
     }
 }
 
