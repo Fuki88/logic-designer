@@ -14,7 +14,6 @@ D:\work\Logic Designer\Logic Designer\obj\x86\Debug\GenerateResource.write.342.t
 D:\work\Logic Designer\Logic Designer\obj\x86\Debug\GenerateResource.write.367.tlog
 D:\Zdrojaky\_DIGITALISTS\Logic Designer\bin\Debug\Logic Designer.exe
 D:\Zdrojaky\_DIGITALISTS\Logic Designer\bin\Debug\Logic Designer.pdb
-D:\Zdrojaky\_DIGITALISTS\Logic Designer\bin\Debug\TextEditor.pdb
 D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Debug\ResolveAssemblyReference.cache
 D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Debug\Logic_Designer.AboutBox1.resources
 D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Debug\Logic_Designer.Form1.resources
@@ -27,7 +26,6 @@ D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Debug\GenerateResource.write.367
 D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Debug\Logic Designer.exe
 D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Debug\Logic Designer.pdb
 D:\work\Logic Designer\Logic Designer\obj\x86\Debug\Logic_Designer.AboutBox1.resources
-D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Debug\Digi_graf_modul.Graf_editor.resources
 C:\skola\Timak\PROJEKT\Logic Designer\obj\x86\Debug\Logic Designer.exe
 C:\skola\Timak\PROJEKT\Logic Designer\obj\x86\Debug\Logic Designer.pdb
 C:\skola\Timak\PROJEKT\Logic Designer\bin\Debug\Logic Designer.exe
@@ -43,3 +41,20 @@ C:\skola\Timak\PROJEKT\Logic Designer\obj\x86\Debug\GenerateResource.write.1.tlo
 C:\skola\Timak\PROJEKT\Logic Designer\obj\x86\Debug\GenerateResource.write.342.tlog
 C:\skola\Timak\PROJEKT\Logic Designer\obj\x86\Debug\GenerateResource.write.367.tlog
 D:\work\Logic Designer\Logic Designer\obj\x86\Debug\Digi_graf_modul.graf_modul.resources
+D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Debug\Digi_graf_modul.graf_modul.resources
+D:\Zdrojaky\TextEditor\_DIGITALISTS\Logic Designer\obj\x86\Debug\Logic Designer.exe
+D:\Zdrojaky\TextEditor\_DIGITALISTS\Logic Designer\obj\x86\Debug\Logic Designer.pdb
+D:\Zdrojaky\TextEditor\_DIGITALISTS\Logic Designer\bin\Debug\Logic Designer.exe
+D:\Zdrojaky\TextEditor\_DIGITALISTS\Logic Designer\bin\Debug\Logic Designer.pdb
+D:\Zdrojaky\TextEditor\_DIGITALISTS\Logic Designer\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Zdrojaky\TextEditor\_DIGITALISTS\Logic Designer\obj\x86\Debug\Logic_Designer.AboutBox1.resources
+D:\Zdrojaky\TextEditor\_DIGITALISTS\Logic Designer\obj\x86\Debug\Logic_Designer.Form1.resources
+D:\Zdrojaky\TextEditor\_DIGITALISTS\Logic Designer\obj\x86\Debug\Digi_graf_modul.graf_modul.resources
+D:\Zdrojaky\TextEditor\_DIGITALISTS\Logic Designer\obj\x86\Debug\Logic_Designer.NumberedRichTextBox.resources
+D:\Zdrojaky\TextEditor\_DIGITALISTS\Logic Designer\obj\x86\Debug\Logic_Designer.Properties.Resources.resources
+D:\Zdrojaky\TextEditor\_DIGITALISTS\Logic Designer\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Zdrojaky\TextEditor\_DIGITALISTS\Logic Designer\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Zdrojaky\TextEditor\_DIGITALISTS\Logic Designer\obj\x86\Debug\GenerateResource.write.342.tlog
+D:\Zdrojaky\TextEditor\_DIGITALISTS\Logic Designer\obj\x86\Debug\GenerateResource.write.367.tlog
+D:\Zdrojaky\TextEditor\_DIGITALISTS\Logic Designer\obj\x86\Debug\Logic_Designer.verifikacia.verifikacia.resources
+D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Debug\Logic_Designer.verifikacia.verifikacia.resources
