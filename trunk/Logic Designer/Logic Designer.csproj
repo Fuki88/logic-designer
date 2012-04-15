@@ -59,6 +59,8 @@
     <Compile Include="AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Blif.cs" />
+    <Compile Include="CONNECTION.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +95,7 @@
     </Compile>
     <Compile Include="graf_modul\Port.cs" />
     <Compile Include="graf_modul\tmp_Node.cs" />
+    <Compile Include="NODE_CTRL.cs" />
     <Compile Include="NumberedRichTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
