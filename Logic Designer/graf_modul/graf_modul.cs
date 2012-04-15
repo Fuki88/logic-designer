@@ -359,7 +359,8 @@ namespace Digi_graf_modul
              //////////////////////////////
              */
             this.Visible = false;
-           
+            FrmNazov nazov_modelu = new FrmNazov();
+            nazov_modelu.Show();
             // frmNew frm = new frmNew();
             //frm.ShowDialog();
         }
@@ -598,9 +599,10 @@ namespace Digi_graf_modul
 
         private void pictureBox_MouseDown(object sender, MouseEventArgs e)
         {
-            int x = System.Windows.Forms.Cursor.Position.X - this.Location.X - pictureBox.Left - 5 - modX;
-            int y = System.Windows.Forms.Cursor.Position.Y - this.Location.Y - pictureBox.Top - 31 - modY;
-
+            //int x = System.Windows.Forms.Cursor.Position.X - this.Location.X - pictureBox.Left - 5 - modX;
+            //int y = System.Windows.Forms.Cursor.Position.Y - this.Location.Y - pictureBox.Top - 31 - modY;
+            int x = System.Windows.Forms.Cursor.Position.X - Logic_Designer.Form1.ActiveForm.Location.X - pictureBox.Left - 5 - modX;
+            int y = System.Windows.Forms.Cursor.Position.Y - Logic_Designer.Form1.ActiveForm.Location.Y - pictureBox.Top - 31 - modY;
             if (action == "delete") // co sa ma vykonat po stlaceni delete tlacidla
             {
                 Connection conx = null;
@@ -1259,8 +1261,10 @@ namespace Digi_graf_modul
 
         private void node_MouseMove(object sender, MouseEventArgs e)
         {
-            int x = System.Windows.Forms.Cursor.Position.X - this.Location.X - pictureBox.Left - 5 - modX;
-            int y = System.Windows.Forms.Cursor.Position.Y - this.Location.Y - pictureBox.Top - 31 - modY;
+            //int x = System.Windows.Forms.Cursor.Position.X - this.Location.X - pictureBox.Left - 5 - modX;
+            //int y = System.Windows.Forms.Cursor.Position.Y - this.Location.Y - pictureBox.Top - 31 - modY;
+            int x = System.Windows.Forms.Cursor.Position.X - Logic_Designer.Form1.ActiveForm.Location.X - pictureBox.Left - 5 - modX;
+            int y = System.Windows.Forms.Cursor.Position.Y - Logic_Designer.Form1.ActiveForm.Location.Y - pictureBox.Top - 31 - modY;
             //lblCoord.Text = "Pozicia: " + "X: " + x.ToString() + " Y: " + y.ToString(); //zobrazenie pozicie pri pohybe mysou
 
             if (/*action == "movenode" &&*/ mouseDown == true && e.Button == MouseButtons.Left)
@@ -1338,9 +1342,11 @@ namespace Digi_graf_modul
             try
             {
                 SetCursor();
-
-                int x = System.Windows.Forms.Cursor.Position.X - this.Location.X - pictureBox.Left - 5 - modX;
-                int y = System.Windows.Forms.Cursor.Position.Y - this.Location.Y - pictureBox.Top - 31 - modY;
+           
+               // int x = System.Windows.Forms.Cursor.Position.X - this.Location.X - pictureBox.Left - 5 - modX;
+               // int y = System.Windows.Forms.Cursor.Position.Y - this.Location.Y - pictureBox.Top - 31 - modY;
+               int x = System.Windows.Forms.Cursor.Position.X - Logic_Designer.Form1.ActiveForm.Location.X - pictureBox.Left - 5 - modX;
+               int y = System.Windows.Forms.Cursor.Position.Y - Logic_Designer.Form1.ActiveForm.Location.Y - pictureBox.Top - 31 - modY;
                 //lblCoord.Text = "X: " + x.ToString() + " Y: " + y.ToString();
                 
                 if (tip != null)
@@ -1499,9 +1505,11 @@ namespace Digi_graf_modul
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
         { //po uvolneni tlacidla nad pictureboxom
             //nastav suradnice
-            int x = System.Windows.Forms.Cursor.Position.X - this.Location.X - pictureBox.Left - 5 - modX;
-            int y = System.Windows.Forms.Cursor.Position.Y - this.Location.Y - pictureBox.Top - 31 - modY;
-
+            
+           // int x = System.Windows.Forms.Cursor.Position.X - this.Location.X - pictureBox.Left - 5 - modX;
+           // int y = System.Windows.Forms.Cursor.Position.Y - this.Location.Y - pictureBox.Top - 31 - modY;
+            int x = System.Windows.Forms.Cursor.Position.X - Logic_Designer.Form1.ActiveForm.Location.X - pictureBox.Left - 5 - modX;
+            int y = System.Windows.Forms.Cursor.Position.Y - Logic_Designer.Form1.ActiveForm.Location.Y - pictureBox.Top - 31 - modY;
             foreach (Connection con in Connections)
             {
                 int SportY = con.StartNode.Top + con.StartNode.Controls[con.StartPort - 1].Top + 2;
@@ -1587,7 +1595,21 @@ namespace Digi_graf_modul
 
         private void newToolNew_Click(object sender, EventArgs e)
         {
-            //pictureBox.Image = null;
+
+            Cleanup();
+            if (Nodes.Count > 0 || Connections.Count > 0)
+            {
+                if (MessageBox.Show("Chcete vytvoriť nový projekt? Všetky neuložené zmeny sa stratia!", "Pozor", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    frmNew frm = new frmNew();
+                    // YYY toto odkomentovat frm.ShowDialog(); najst frmMain a odkomentovat!
+                }
+            }
+            else
+            {
+                frmNew frm = new frmNew();
+                //frm.ShowDialog();
+            }
         }
 
         private void pictureBox_DragEnter(object sender, DragEventArgs e)
@@ -1842,8 +1864,10 @@ namespace Digi_graf_modul
         {
             {
                 pictureBox.Focus();
-                int x = System.Windows.Forms.Cursor.Position.X - this.Location.X - pictureBox.Left - 5 - modX;
-                int y = System.Windows.Forms.Cursor.Position.Y - this.Location.Y - pictureBox.Top - 31 - modY;
+               // int x = System.Windows.Forms.Cursor.Position.X - this.Location.X - pictureBox.Left - 5 - modX;
+               // int y = System.Windows.Forms.Cursor.Position.Y - this.Location.Y - pictureBox.Top - 31 - modY;
+                int x = System.Windows.Forms.Cursor.Position.X - Logic_Designer.Form1.ActiveForm.Location.X - pictureBox.Left - 5 - modX;
+                int y = System.Windows.Forms.Cursor.Position.Y - Logic_Designer.Form1.ActiveForm.Location.Y - pictureBox.Top - 31 - modY;
                 if (action == "addnode")
                 { // ak je akcia nastavena na pridavanie hradiel, vytvor hradlo na pictureboxe
                     action = tmp_action;
@@ -2106,8 +2130,10 @@ namespace Digi_graf_modul
 
          private void pictureBox1_MouseHover(object sender, EventArgs e)
         { //volaky tooltip
-            int x = System.Windows.Forms.Cursor.Position.X - this.Location.X - pictureBox.Left - 5 - modX;
-            int y = System.Windows.Forms.Cursor.Position.Y - this.Location.Y - pictureBox.Top - 31 - modY;
+           // int x = System.Windows.Forms.Cursor.Position.X - this.Location.X - pictureBox.Left - 5 - modX;
+           // int y = System.Windows.Forms.Cursor.Position.Y - this.Location.Y - pictureBox.Top - 31 - modY;
+            int x = System.Windows.Forms.Cursor.Position.X - Logic_Designer.Form1.ActiveForm.Location.X - pictureBox.Left - 5 - modX;
+            int y = System.Windows.Forms.Cursor.Position.Y - Logic_Designer.Form1.ActiveForm.Location.Y - pictureBox.Top - 31 - modY;
             
             //toolTipMain.AutomaticDelay = 1000;
             //toolTipMain.InitialDelay = 0;
@@ -2246,9 +2272,10 @@ namespace Digi_graf_modul
 
         private void toolSelect_MouseHover(object sender, EventArgs e)
         {
-            int x = System.Windows.Forms.Cursor.Position.X - this.Location.X - pictureBox.Left - 5 - modX;
-            int y = System.Windows.Forms.Cursor.Position.Y - this.Location.Y - pictureBox.Top - 31 - modY;
-
+            //int x = System.Windows.Forms.Cursor.Position.X - this.Location.X - pictureBox.Left - 5 - modX;
+            //int y = System.Windows.Forms.Cursor.Position.Y - this.Location.Y - pictureBox.Top - 31 - modY;
+            int x = System.Windows.Forms.Cursor.Position.X - Logic_Designer.Form1.ActiveForm.Location.X - pictureBox.Left - 5 - modX;
+            int y = System.Windows.Forms.Cursor.Position.Y - Logic_Designer.Form1.ActiveForm.Location.Y - pictureBox.Top - 31 - modY;
             //toolTipMain.AutomaticDelay = 1000;
             //toolTipMain.InitialDelay = 0;
             //toolTipMain.SetToolTip(pictureBox, "asdasd");
@@ -2901,6 +2928,23 @@ namespace Digi_graf_modul
         private void toolStrip4_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void toolInfo_Click(object sender, EventArgs e)
+        {
+            frmInfo info = new frmInfo();
+            info.Show();
+        }
+
+        private void toolText_Click(object sender, EventArgs e)
+        {
+          
+           if (SetLabelVisible) SetLabelVisible = false;
+            else SetLabelVisible = true;
+            foreach (Connection con in Connections)
+            {
+                con.SetLabelVisible();
+            }
         }
 
 

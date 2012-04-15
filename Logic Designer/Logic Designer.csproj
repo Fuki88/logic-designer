@@ -69,6 +69,18 @@
     <Compile Include="graf_modul\Connection.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="graf_modul\FmrInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="graf_modul\FmrInfo.Designer.cs">
+      <DependentUpon>FmrInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="graf_modul\FrmNazov.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="graf_modul\FrmNazov.Designer.cs">
+      <DependentUpon>FrmNazov.cs</DependentUpon>
+    </Compile>
     <Compile Include="graf_modul\graf_modul.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -100,6 +112,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="graf_modul\FmrInfo.resx">
+      <DependentUpon>FmrInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="graf_modul\FrmNazov.resx">
+      <DependentUpon>FrmNazov.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="graf_modul\graf_modul.resx">
       <DependentUpon>graf_modul.cs</DependentUpon>
