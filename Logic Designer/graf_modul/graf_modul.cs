@@ -2947,6 +2947,20 @@ namespace Digi_graf_modul
             }
         }
 
+        private void btn_Send_to_Core_Click(object sender, EventArgs e)
+        {
+            Logic_Designer.Form1.ClearNode();
+            foreach (NodeCtrl NOD in Nodes)
+            Logic_Designer.Form1.SetNode(NOD.ID, NOD.ConIN, NOD.ConOut, NOD.Name, NOD.Type, NOD.Left, NOD.Top);
+
+            Logic_Designer.Form1.ClearCon();
+            foreach (Connection CON in Connections)
+            Logic_Designer.Form1.SetCon(CON.Name, CON.StartNode.Name, CON.EndNode.Name);
+
+            foreach (Logic_Designer.NODE_CTRL c in Logic_Designer.Form1.NODES)
+                MessageBox.Show(c.Type);
+        }
+
 
 
     }

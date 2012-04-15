@@ -80,6 +80,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(974, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // toolStripMenuItem1
             // 
@@ -330,7 +331,7 @@
             // 
             this.graf_modul1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.graf_modul1.Location = new System.Drawing.Point(3, 3);
-            this.graf_modul1.ModelName = "untitled";
+            this.graf_modul1.ModelName = "";
             this.graf_modul1.ModelType = "Logic";
             this.graf_modul1.Name = "graf_modul1";
             this.graf_modul1.Size = new System.Drawing.Size(960, 561);

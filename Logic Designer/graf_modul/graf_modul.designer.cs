@@ -51,14 +51,6 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.toolSelect = new System.Windows.Forms.ToolStripButton();
-            this.toolConnect = new System.Windows.Forms.ToolStripButton();
-            this.toolMoveNode = new System.Windows.Forms.ToolStripButton();
-            this.toolConDel = new System.Windows.Forms.ToolStripButton();
-            this.toolText = new System.Windows.Forms.ToolStripButton();
-            this.newToolNew = new System.Windows.Forms.ToolStripButton();
-            this.toolInfo = new System.Windows.Forms.ToolStripButton();
             this.lbl_typ = new System.Windows.Forms.Label();
             this.lbl_Nazov = new System.Windows.Forms.Label();
             this.lbl_Zaciatok = new System.Windows.Forms.Label();
@@ -67,6 +59,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.toolSelect = new System.Windows.Forms.ToolStripButton();
+            this.toolConnect = new System.Windows.Forms.ToolStripButton();
+            this.toolMoveNode = new System.Windows.Forms.ToolStripButton();
+            this.toolConDel = new System.Windows.Forms.ToolStripButton();
+            this.toolText = new System.Windows.Forms.ToolStripButton();
+            this.newToolNew = new System.Windows.Forms.ToolStripButton();
+            this.toolInfo = new System.Windows.Forms.ToolStripButton();
+            this.btn_Send_to_Core = new System.Windows.Forms.Button();
             this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.toolStrip3.SuspendLayout();
@@ -288,6 +289,7 @@
             // 
             // splitContainer3.Panel2
             // 
+            this.splitContainer3.Panel2.Controls.Add(this.btn_Send_to_Core);
             this.splitContainer3.Panel2.Controls.Add(this.label2);
             this.splitContainer3.Panel2.Controls.Add(this.listConsMain);
             this.splitContainer3.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer3_Panel2_Paint);
@@ -312,7 +314,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.listNodesMain.Location = new System.Drawing.Point(3, 45);
             this.listNodesMain.Name = "listNodesMain";
-            this.listNodesMain.Size = new System.Drawing.Size(158, 181);
+            this.listNodesMain.Size = new System.Drawing.Size(158, 157);
             this.listNodesMain.TabIndex = 0;
             this.listNodesMain.UseCompatibleStateImageBehavior = false;
             this.listNodesMain.SelectedIndexChanged += new System.EventHandler(this.listNodesMain_SelectedIndexChanged);
@@ -333,7 +335,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.listConsMain.Location = new System.Drawing.Point(3, 31);
             this.listConsMain.Name = "listConsMain";
-            this.listConsMain.Size = new System.Drawing.Size(158, 195);
+            this.listConsMain.Size = new System.Drawing.Size(158, 154);
             this.listConsMain.TabIndex = 0;
             this.listConsMain.UseCompatibleStateImageBehavior = false;
             this.listConsMain.SelectedIndexChanged += new System.EventHandler(this.listConsMain_SelectedIndexChanged);
@@ -354,6 +356,78 @@
             // printDialog1
             // 
             this.printDialog1.UseEXDialog = true;
+            // 
+            // lbl_typ
+            // 
+            this.lbl_typ.AutoSize = true;
+            this.lbl_typ.Location = new System.Drawing.Point(183, 16);
+            this.lbl_typ.Name = "lbl_typ";
+            this.lbl_typ.Size = new System.Drawing.Size(27, 13);
+            this.lbl_typ.TabIndex = 0;
+            this.lbl_typ.Text = "N/A";
+            // 
+            // lbl_Nazov
+            // 
+            this.lbl_Nazov.AutoSize = true;
+            this.lbl_Nazov.Location = new System.Drawing.Point(183, 40);
+            this.lbl_Nazov.Name = "lbl_Nazov";
+            this.lbl_Nazov.Size = new System.Drawing.Size(27, 13);
+            this.lbl_Nazov.TabIndex = 1;
+            this.lbl_Nazov.Text = "N/A";
+            // 
+            // lbl_Zaciatok
+            // 
+            this.lbl_Zaciatok.AutoSize = true;
+            this.lbl_Zaciatok.Location = new System.Drawing.Point(183, 64);
+            this.lbl_Zaciatok.Name = "lbl_Zaciatok";
+            this.lbl_Zaciatok.Size = new System.Drawing.Size(27, 13);
+            this.lbl_Zaciatok.TabIndex = 2;
+            this.lbl_Zaciatok.Text = "N/A";
+            // 
+            // lbl_Koniec
+            // 
+            this.lbl_Koniec.AutoSize = true;
+            this.lbl_Koniec.Location = new System.Drawing.Point(183, 91);
+            this.lbl_Koniec.Name = "lbl_Koniec";
+            this.lbl_Koniec.Size = new System.Drawing.Size(27, 13);
+            this.lbl_Koniec.TabIndex = 3;
+            this.lbl_Koniec.Text = "N/A";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(71, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(31, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Typ :";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(71, 40);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Názov :";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(71, 64);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(55, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Začiatok :";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(71, 91);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Koniec :";
             // 
             // pictureBox
             // 
@@ -467,77 +541,15 @@
             this.toolInfo.Text = "toolStripButton1";
             this.toolInfo.Click += new System.EventHandler(this.toolInfo_Click);
             // 
-            // lbl_typ
+            // btn_Send_to_Core
             // 
-            this.lbl_typ.AutoSize = true;
-            this.lbl_typ.Location = new System.Drawing.Point(183, 16);
-            this.lbl_typ.Name = "lbl_typ";
-            this.lbl_typ.Size = new System.Drawing.Size(27, 13);
-            this.lbl_typ.TabIndex = 0;
-            this.lbl_typ.Text = "N/A";
-            // 
-            // lbl_Nazov
-            // 
-            this.lbl_Nazov.AutoSize = true;
-            this.lbl_Nazov.Location = new System.Drawing.Point(183, 40);
-            this.lbl_Nazov.Name = "lbl_Nazov";
-            this.lbl_Nazov.Size = new System.Drawing.Size(27, 13);
-            this.lbl_Nazov.TabIndex = 1;
-            this.lbl_Nazov.Text = "N/A";
-            // 
-            // lbl_Zaciatok
-            // 
-            this.lbl_Zaciatok.AutoSize = true;
-            this.lbl_Zaciatok.Location = new System.Drawing.Point(183, 64);
-            this.lbl_Zaciatok.Name = "lbl_Zaciatok";
-            this.lbl_Zaciatok.Size = new System.Drawing.Size(27, 13);
-            this.lbl_Zaciatok.TabIndex = 2;
-            this.lbl_Zaciatok.Text = "N/A";
-            // 
-            // lbl_Koniec
-            // 
-            this.lbl_Koniec.AutoSize = true;
-            this.lbl_Koniec.Location = new System.Drawing.Point(183, 91);
-            this.lbl_Koniec.Name = "lbl_Koniec";
-            this.lbl_Koniec.Size = new System.Drawing.Size(27, 13);
-            this.lbl_Koniec.TabIndex = 3;
-            this.lbl_Koniec.Text = "N/A";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(71, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Typ :";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(71, 40);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Názov :";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(71, 64);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Začiatok :";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(71, 91);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 13);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Koniec :";
+            this.btn_Send_to_Core.Location = new System.Drawing.Point(6, 191);
+            this.btn_Send_to_Core.Name = "btn_Send_to_Core";
+            this.btn_Send_to_Core.Size = new System.Drawing.Size(155, 23);
+            this.btn_Send_to_Core.TabIndex = 2;
+            this.btn_Send_to_Core.Text = "Poslať do jadra";
+            this.btn_Send_to_Core.UseVisualStyleBackColor = true;
+            this.btn_Send_to_Core.Click += new System.EventHandler(this.btn_Send_to_Core_Click);
             // 
             // graf_modul
             // 
@@ -620,6 +632,7 @@
         private System.Windows.Forms.Label lbl_Zaciatok;
         private System.Windows.Forms.Label lbl_Nazov;
         private System.Windows.Forms.Label lbl_typ;
+        private System.Windows.Forms.Button btn_Send_to_Core;
 
 
     }
