@@ -141,5 +141,10 @@ namespace Logic_Designer
             graf_modul1.Show();
         }
 
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
