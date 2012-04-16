@@ -54,11 +54,11 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.numberedRichTextBox1 = new Logic_Designer.NumberedRichTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.graf_modul1 = new Digi_graf_modul.graf_modul();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.loadTextEditorModule = new System.Windows.Forms.OpenFileDialog();
-            this.numberedRichTextBox1 = new Logic_Designer.NumberedRichTextBox();
-            this.graf_modul1 = new Digi_graf_modul.graf_modul();
             this.verifikacia1 = new Logic_Designer.verifikacia.verifikacia();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -290,6 +290,14 @@
             this.tabPage1.Text = "Text Editor";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // numberedRichTextBox1
+            // 
+            this.numberedRichTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numberedRichTextBox1.Location = new System.Drawing.Point(3, 3);
+            this.numberedRichTextBox1.Name = "numberedRichTextBox1";
+            this.numberedRichTextBox1.Size = new System.Drawing.Size(960, 561);
+            this.numberedRichTextBox1.TabIndex = 0;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.graf_modul1);
@@ -300,7 +308,19 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Drag \'n Drop Editor";
             this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // graf_modul1
+            // 
+            this.graf_modul1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.graf_modul1.Location = new System.Drawing.Point(0, 3);
+            this.graf_modul1.ModelName = "untitled";
+            this.graf_modul1.ModelType = "Logic";
+            this.graf_modul1.Name = "graf_modul1";
+            this.graf_modul1.Size = new System.Drawing.Size(963, 561);
+            this.graf_modul1.StateFirst = 0;
+            this.graf_modul1.StateSecond = 0;
+            this.graf_modul1.TabIndex = 1;
+            this.graf_modul1.Load += new System.EventHandler(this.graf_modul1_Load);
             // 
             // tabPage3
             // 
@@ -319,6 +339,8 @@
             this.loadTextEditorModule.Filter = "Logic Designer Text Editor Modules|*.dll|All files|*.*";
             this.loadTextEditorModule.Title = "Choose Text Module";
             // 
+<<<<<<< .mine
+=======
             // numberedRichTextBox1
             // 
             this.numberedRichTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -340,9 +362,9 @@
             this.graf_modul1.TabIndex = 1;
             this.graf_modul1.Load += new System.EventHandler(this.graf_modul1_Load);
             // 
+>>>>>>> .r19
             // verifikacia1
             // 
-            this.verifikacia1.BackColor = System.Drawing.SystemColors.Control;
             this.verifikacia1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.verifikacia1.Location = new System.Drawing.Point(0, 0);
             this.verifikacia1.Name = "verifikacia1";
