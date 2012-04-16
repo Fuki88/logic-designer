@@ -87,6 +87,7 @@ namespace Digi_graf_modul
         }
 
 
+        public int ID = 0;
         private const string XML_FILE_NAME = "testNode.xml";
 
         private bool changed = false;
@@ -361,6 +362,7 @@ namespace Digi_graf_modul
             this.Visible = false;
             FrmNazov nazov_modelu = new FrmNazov();
             nazov_modelu.Show();
+           
             // frmNew frm = new frmNew();
             //frm.ShowDialog();
         }
@@ -1813,6 +1815,8 @@ namespace Digi_graf_modul
             node.MouseClick += new MouseEventHandler(node_Click);
             node.DoubleClick += new EventHandler(node_DoubleClick);
             node.MouseEnter += new EventHandler(node_MouseEnter);
+            node.ID = ID;
+            ID++;
             
             foreach (ConPort port in active_gate.PortsIN)
             {// pre vsetky vstupne porty vo vyznacenom hradle pridat do uzla
@@ -2495,6 +2499,7 @@ namespace Digi_graf_modul
                     node.ID = nodex.id;
                     node.Left = nodex.X;
                     node.Top = nodex.Y;
+                    ID = nodex.id;
                     foreach (Gate g in Gates)
                     {
                      if (g.name == node.Type)

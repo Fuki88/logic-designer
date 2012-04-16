@@ -46,9 +46,10 @@
             // 
             this.textBox1.HideSelection = false;
             this.textBox1.Location = new System.Drawing.Point(140, 26);
+            this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(813, 20);
+            this.textBox1.Size = new System.Drawing.Size(813, 197);
             this.textBox1.TabIndex = 1;
             // 
             // verifikacia
