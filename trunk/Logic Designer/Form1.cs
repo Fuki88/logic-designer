@@ -176,6 +176,7 @@ namespace Logic_Designer
 
                 foreach (NODE_CTRL node in NODES)
                 {
+                   
                     SavedNode _node = new SavedNode();
                     //... tu sa naplnaju vlastnosti objektu
                     _node.ConIN = node.ConIN;
@@ -185,8 +186,8 @@ namespace Logic_Designer
                     _node.id = node.ID;
                     _node.X = node.Left;
                     _node.Y = node.Top;
-                    MessageBox.Show(_node.Name);
                     bF.Serialize(stream, _node);
+                   
                 }
 
                 stream.Close();
@@ -259,6 +260,73 @@ namespace Logic_Designer
                 return false;
             }
             return true;
+        }
+
+        public static void Cleanup(){
+            ClearCon();
+            ClearNode();
+            
+        }
+
+        public static void CreateNode(int x, int y, int ID, string Name, string Type, string[] PortsIN, string PortsOUT){
+            NODE_CTRL N = new NODE_CTRL();
+
+            foreach (string INn in PortsIN)
+                N.ConIN.Add(INn);
+            N.ConOut.Add(PortsOUT);
+            N.Text = Name;
+            N.Type = Type;
+            N.ID = ID;
+            N.Left = x;
+            N.Top = y;
+            NODES.Add(N);
+        }
+
+        public static void MakeCons() { //vytvori prepojenia k nodom (ak nahodou neexistuju)
+
+            int flag = 0;
+
+            foreach (NODE_CTRL node in NODES)
+            {
+
+                foreach (string cI in node.ConIN)
+                {
+                    foreach (NODE_CTRL nn in NODES) {
+                        foreach (string cO in nn.ConOut) {
+                            if (cI == cO) {
+                                foreach (CONNECTION conn in CONNECTIONS)
+                                {
+                                    if (conn.Name == cI)
+                                    {
+                                        conn.EndNode_Text = node.Type;
+                                        conn.StartNode_Text = nn.Type;
+                                        flag = 1;
+                                    }
+                                }
+                                if (flag == 0) {
+                                    CONNECTION connection = new CONNECTION();
+                                    connection.Name = cI;
+                                    connection.EndNode_Text = node.Type;
+                                    connection.StartNode_Text = nn.Type;
+                                    CONNECTIONS.Add(connection);
+                                } flag = 0;
+                            }
+                        }
+                    
+                    }
+                    
+                }
+
+            }
+
+            foreach (NODE_CTRL abc in NODES)
+                MessageBox.Show(abc.Type);
+
+        }
+
+        private void verifikacia1_Load(object sender, EventArgs e)
+        {
+
         }
 
     }

@@ -125,6 +125,9 @@
     <EmbeddedResource Include="graf_modul\graf_modul.resx">
       <DependentUpon>graf_modul.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="graf_modul\NodeCtrl.resx">
+      <DependentUpon>NodeCtrl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NumberedRichTextBox.resx">
       <DependentUpon>NumberedRichTextBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -158,6 +161,8 @@
     <None Include="resource\Redo-icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\url.jpg" />
     <Content Include="resource\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

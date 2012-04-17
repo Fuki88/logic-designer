@@ -61,6 +61,7 @@
             this.Controls.Add(this.btnSimulate);
             this.Name = "verifikacia";
             this.Size = new System.Drawing.Size(953, 571);
+            this.Load += new System.EventHandler(this.verifikacia_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

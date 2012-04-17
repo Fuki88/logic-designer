@@ -804,5 +804,10 @@ namespace Logic_Designer.verifikacia
                 MessageBox.Show("V grafickom editore sa nenachadza ziadny logicky clen.\n"+exception);
             }
         }
+
+        private void verifikacia_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
