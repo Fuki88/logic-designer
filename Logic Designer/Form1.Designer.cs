@@ -339,8 +339,6 @@
             this.loadTextEditorModule.Filter = "Logic Designer Text Editor Modules|*.dll|All files|*.*";
             this.loadTextEditorModule.Title = "Choose Text Module";
             // 
-<<<<<<< .mine
-=======
             // numberedRichTextBox1
             // 
             this.numberedRichTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -362,7 +360,6 @@
             this.graf_modul1.TabIndex = 1;
             this.graf_modul1.Load += new System.EventHandler(this.graf_modul1_Load);
             // 
->>>>>>> .r19
             // verifikacia1
             // 
             this.verifikacia1.Dock = System.Windows.Forms.DockStyle.Fill;

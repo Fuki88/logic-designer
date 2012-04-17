@@ -64,11 +64,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-<<<<<<< .mine
             this.hScrollBar = new System.Windows.Forms.HScrollBar();
             this.vScrollBar = new System.Windows.Forms.VScrollBar();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-=======
             this.toolSelect = new System.Windows.Forms.ToolStripButton();
             this.toolConnect = new System.Windows.Forms.ToolStripButton();
             this.toolMoveNode = new System.Windows.Forms.ToolStripButton();
@@ -77,7 +75,6 @@
             this.newToolNew = new System.Windows.Forms.ToolStripButton();
             this.toolInfo = new System.Windows.Forms.ToolStripButton();
             this.btn_Send_to_Core = new System.Windows.Forms.Button();
->>>>>>> .r19
             this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.toolStrip3.SuspendLayout();
@@ -540,8 +537,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-<<<<<<< .mine
-=======
             // toolConDel
             // 
             this.toolConDel.AutoSize = false;
@@ -601,7 +596,6 @@
             this.btn_Send_to_Core.UseVisualStyleBackColor = true;
             this.btn_Send_to_Core.Click += new System.EventHandler(this.btn_Send_to_Core_Click);
             // 
->>>>>>> .r19
             // graf_modul
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
