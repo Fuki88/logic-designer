@@ -367,6 +367,7 @@
             this.verifikacia1.Name = "verifikacia1";
             this.verifikacia1.Size = new System.Drawing.Size(966, 567);
             this.verifikacia1.TabIndex = 0;
+            this.verifikacia1.Load += new System.EventHandler(this.verifikacia1_Load);
             // 
             // Form1
             // 

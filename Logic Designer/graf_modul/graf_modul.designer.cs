@@ -42,6 +42,10 @@
             this.toolInfo = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.vScrollBar = new System.Windows.Forms.VScrollBar();
+            this.hScrollBar = new System.Windows.Forms.HScrollBar();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.listViewMain = new System.Windows.Forms.ListView();
@@ -55,26 +59,14 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.toolStripContainer2 = new System.Windows.Forms.ToolStripContainer();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btn_Refresh = new System.Windows.Forms.ToolStripButton();
+            this.btn_Send_To_Core = new System.Windows.Forms.ToolStripButton();
             this.lbl_typ = new System.Windows.Forms.Label();
             this.lbl_Nazov = new System.Windows.Forms.Label();
             this.lbl_Zaciatok = new System.Windows.Forms.Label();
             this.lbl_Koniec = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.hScrollBar = new System.Windows.Forms.HScrollBar();
-            this.vScrollBar = new System.Windows.Forms.VScrollBar();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.toolSelect = new System.Windows.Forms.ToolStripButton();
-            this.toolConnect = new System.Windows.Forms.ToolStripButton();
-            this.toolMoveNode = new System.Windows.Forms.ToolStripButton();
-            this.toolConDel = new System.Windows.Forms.ToolStripButton();
-            this.toolText = new System.Windows.Forms.ToolStripButton();
-            this.newToolNew = new System.Windows.Forms.ToolStripButton();
-            this.toolInfo = new System.Windows.Forms.ToolStripButton();
-            this.btn_Send_to_Core = new System.Windows.Forms.Button();
             this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.toolStrip3.SuspendLayout();
@@ -84,16 +76,20 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.groupCon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
-            this.tabPage1.SuspendLayout();
+            this.toolStripContainer2.BottomToolStripPanel.SuspendLayout();
+            this.toolStripContainer2.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripContainer1
@@ -215,6 +211,7 @@
             this.toolText.Name = "toolText";
             this.toolText.Size = new System.Drawing.Size(33, 34);
             this.toolText.Text = "toolStripButton2";
+            this.toolText.Click += new System.EventHandler(this.toolText_Click);
             // 
             // newToolNew
             // 
@@ -238,6 +235,7 @@
             this.toolInfo.Name = "toolInfo";
             this.toolInfo.Size = new System.Drawing.Size(33, 34);
             this.toolInfo.Text = "toolStripButton1";
+            this.toolInfo.Click += new System.EventHandler(this.toolInfo_Click);
             // 
             // splitContainer1
             // 
@@ -275,6 +273,59 @@
             this.tabControl1.Size = new System.Drawing.Size(676, 256);
             this.tabControl1.TabIndex = 1;
             this.tabControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabControl1_MouseDown);
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.vScrollBar);
+            this.tabPage1.Controls.Add(this.hScrollBar);
+            this.tabPage1.Controls.Add(this.pictureBox);
+            this.tabPage1.Location = new System.Drawing.Point(23, 4);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(649, 248);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // vScrollBar
+            // 
+            this.vScrollBar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.vScrollBar.Location = new System.Drawing.Point(626, 3);
+            this.vScrollBar.Name = "vScrollBar";
+            this.vScrollBar.Size = new System.Drawing.Size(20, 220);
+            this.vScrollBar.TabIndex = 2;
+            this.vScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vScrollBar_Scroll);
+            // 
+            // hScrollBar
+            // 
+            this.hScrollBar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.hScrollBar.Location = new System.Drawing.Point(3, 223);
+            this.hScrollBar.Name = "hScrollBar";
+            this.hScrollBar.Size = new System.Drawing.Size(643, 22);
+            this.hScrollBar.TabIndex = 1;
+            this.hScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar_Scroll);
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox.Location = new System.Drawing.Point(0, -19);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(873, 499);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox.TabIndex = 0;
+            this.pictureBox.TabStop = false;
+            this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
+            this.pictureBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.pictureBox_DragDrop);
+            this.pictureBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureBox_DragEnter);
+            this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
+            this.pictureBox.DoubleClick += new System.EventHandler(this.pictureBox_DoubleClick);
+            this.pictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
+            this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
+            this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
+            this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
+            this.pictureBox.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseWheel);
+            this.pictureBox.Resize += new System.EventHandler(this.pictureBox_Resize);
             // 
             // splitter1
             // 
@@ -321,6 +372,10 @@
             this.groupCon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupCon.Controls.Add(this.lbl_Koniec);
+            this.groupCon.Controls.Add(this.lbl_Zaciatok);
+            this.groupCon.Controls.Add(this.lbl_Nazov);
+            this.groupCon.Controls.Add(this.lbl_typ);
             this.groupCon.Location = new System.Drawing.Point(3, 3);
             this.groupCon.Name = "groupCon";
             this.groupCon.Size = new System.Drawing.Size(324, 121);
@@ -344,12 +399,11 @@
             // 
             // splitContainer3.Panel2
             // 
-            this.splitContainer3.Panel2.Controls.Add(this.btn_Send_to_Core);
             this.splitContainer3.Panel2.Controls.Add(this.label2);
             this.splitContainer3.Panel2.Controls.Add(this.listConsMain);
             this.splitContainer3.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer3_Panel2_Paint);
             this.splitContainer3.Size = new System.Drawing.Size(164, 443);
-            this.splitContainer3.SplitterDistance = 205;
+            this.splitContainer3.SplitterDistance = 193;
             this.splitContainer3.TabIndex = 4;
             // 
             // label1
@@ -369,7 +423,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.listNodesMain.Location = new System.Drawing.Point(3, 45);
             this.listNodesMain.Name = "listNodesMain";
-            this.listNodesMain.Size = new System.Drawing.Size(158, 157);
+            this.listNodesMain.Size = new System.Drawing.Size(158, 145);
             this.listNodesMain.TabIndex = 0;
             this.listNodesMain.UseCompatibleStateImageBehavior = false;
             this.listNodesMain.SelectedIndexChanged += new System.EventHandler(this.listNodesMain_SelectedIndexChanged);
@@ -390,7 +444,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.listConsMain.Location = new System.Drawing.Point(3, 31);
             this.listConsMain.Name = "listConsMain";
-            this.listConsMain.Size = new System.Drawing.Size(158, 154);
+            this.listConsMain.Size = new System.Drawing.Size(158, 212);
             this.listConsMain.TabIndex = 0;
             this.listConsMain.UseCompatibleStateImageBehavior = false;
             this.listConsMain.SelectedIndexChanged += new System.EventHandler(this.listConsMain_SelectedIndexChanged);
@@ -412,10 +466,56 @@
             // 
             this.printDialog1.UseEXDialog = true;
             // 
+            // toolStripContainer2
+            // 
+            // 
+            // toolStripContainer2.BottomToolStripPanel
+            // 
+            this.toolStripContainer2.BottomToolStripPanel.Controls.Add(this.toolStrip1);
+            // 
+            // toolStripContainer2.ContentPanel
+            // 
+            this.toolStripContainer2.ContentPanel.Size = new System.Drawing.Size(150, 125);
+            this.toolStripContainer2.Location = new System.Drawing.Point(62, -149);
+            this.toolStripContainer2.Name = "toolStripContainer2";
+            this.toolStripContainer2.Size = new System.Drawing.Size(150, 175);
+            this.toolStripContainer2.TabIndex = 5;
+            this.toolStripContainer2.Text = "toolStripContainer2";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_Refresh,
+            this.btn_Send_To_Core});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(58, 25);
+            this.toolStrip1.TabIndex = 0;
+            // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_Refresh.Image = global::Logic_Designer.Properties.Resources.refresh;
+            this.btn_Refresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(23, 22);
+            this.btn_Refresh.Text = "Refresh";
+            // 
+            // btn_Send_To_Core
+            // 
+            this.btn_Send_To_Core.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_Send_To_Core.Image = global::Logic_Designer.Properties.Resources.url;
+            this.btn_Send_To_Core.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Send_To_Core.Name = "btn_Send_To_Core";
+            this.btn_Send_To_Core.Size = new System.Drawing.Size(23, 22);
+            this.btn_Send_To_Core.Text = "Save to core";
+            this.btn_Send_To_Core.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
             // lbl_typ
             // 
             this.lbl_typ.AutoSize = true;
-            this.lbl_typ.Location = new System.Drawing.Point(183, 16);
+            this.lbl_typ.Location = new System.Drawing.Point(184, 27);
             this.lbl_typ.Name = "lbl_typ";
             this.lbl_typ.Size = new System.Drawing.Size(27, 13);
             this.lbl_typ.TabIndex = 0;
@@ -424,7 +524,7 @@
             // lbl_Nazov
             // 
             this.lbl_Nazov.AutoSize = true;
-            this.lbl_Nazov.Location = new System.Drawing.Point(183, 40);
+            this.lbl_Nazov.Location = new System.Drawing.Point(184, 44);
             this.lbl_Nazov.Name = "lbl_Nazov";
             this.lbl_Nazov.Size = new System.Drawing.Size(27, 13);
             this.lbl_Nazov.TabIndex = 1;
@@ -433,7 +533,7 @@
             // lbl_Zaciatok
             // 
             this.lbl_Zaciatok.AutoSize = true;
-            this.lbl_Zaciatok.Location = new System.Drawing.Point(183, 64);
+            this.lbl_Zaciatok.Location = new System.Drawing.Point(184, 61);
             this.lbl_Zaciatok.Name = "lbl_Zaciatok";
             this.lbl_Zaciatok.Size = new System.Drawing.Size(27, 13);
             this.lbl_Zaciatok.TabIndex = 2;
@@ -442,164 +542,17 @@
             // lbl_Koniec
             // 
             this.lbl_Koniec.AutoSize = true;
-            this.lbl_Koniec.Location = new System.Drawing.Point(183, 91);
+            this.lbl_Koniec.Location = new System.Drawing.Point(184, 74);
             this.lbl_Koniec.Name = "lbl_Koniec";
             this.lbl_Koniec.Size = new System.Drawing.Size(27, 13);
             this.lbl_Koniec.TabIndex = 3;
             this.lbl_Koniec.Text = "N/A";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(71, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Typ :";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(71, 40);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Názov :";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(71, 64);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Začiatok :";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(71, 91);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 13);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Koniec :";
-            // 
-            // pictureBox
-            // 
-            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox.Location = new System.Drawing.Point(0, -19);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(873, 499);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox.TabIndex = 0;
-            this.pictureBox.TabStop = false;
-            this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
-            this.pictureBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.pictureBox_DragDrop);
-            this.pictureBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureBox_DragEnter);
-            this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
-            this.pictureBox.DoubleClick += new System.EventHandler(this.pictureBox_DoubleClick);
-            this.pictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
-            this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
-            this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
-            this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
-            this.pictureBox.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseWheel);
-            this.pictureBox.Resize += new System.EventHandler(this.pictureBox_Resize);
-            // 
-            // hScrollBar
-            // 
-            this.hScrollBar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.hScrollBar.Location = new System.Drawing.Point(3, 223);
-            this.hScrollBar.Name = "hScrollBar";
-            this.hScrollBar.Size = new System.Drawing.Size(643, 22);
-            this.hScrollBar.TabIndex = 1;
-            this.hScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar_Scroll);
-            // 
-            // vScrollBar
-            // 
-            this.vScrollBar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.vScrollBar.Location = new System.Drawing.Point(626, 3);
-            this.vScrollBar.Name = "vScrollBar";
-            this.vScrollBar.Size = new System.Drawing.Size(20, 220);
-            this.vScrollBar.TabIndex = 2;
-            this.vScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vScrollBar_Scroll);
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.vScrollBar);
-            this.tabPage1.Controls.Add(this.hScrollBar);
-            this.tabPage1.Controls.Add(this.pictureBox);
-            this.tabPage1.Location = new System.Drawing.Point(23, 4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(649, 248);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // toolConDel
-            // 
-            this.toolConDel.AutoSize = false;
-            this.toolConDel.BackColor = System.Drawing.Color.Transparent;
-            this.toolConDel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolConDel.Image = ((System.Drawing.Image)(resources.GetObject("toolConDel.Image")));
-            this.toolConDel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolConDel.Name = "toolConDel";
-            this.toolConDel.Size = new System.Drawing.Size(33, 34);
-            this.toolConDel.Text = "toolStripButton7";
-            this.toolConDel.Click += new System.EventHandler(this.toolConDel_Click);
-            this.toolConDel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.toolConDel_MouseDown);
-            // 
-            // toolText
-            // 
-            this.toolText.AutoSize = false;
-            this.toolText.BackColor = System.Drawing.Color.Transparent;
-            this.toolText.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolText.Image = ((System.Drawing.Image)(resources.GetObject("toolText.Image")));
-            this.toolText.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolText.Name = "toolText";
-            this.toolText.Size = new System.Drawing.Size(33, 34);
-            this.toolText.Text = "toolStripButton2";
-            this.toolText.Click += new System.EventHandler(this.toolText_Click);
-            // 
-            // newToolNew
-            // 
-            this.newToolNew.AutoSize = false;
-            this.newToolNew.BackColor = System.Drawing.Color.Transparent;
-            this.newToolNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.newToolNew.Image = ((System.Drawing.Image)(resources.GetObject("newToolNew.Image")));
-            this.newToolNew.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.newToolNew.Name = "newToolNew";
-            this.newToolNew.Size = new System.Drawing.Size(33, 34);
-            this.newToolNew.Text = "&New";
-            this.newToolNew.Click += new System.EventHandler(this.newToolNew_Click);
-            // 
-            // toolInfo
-            // 
-            this.toolInfo.AutoSize = false;
-            this.toolInfo.BackColor = System.Drawing.Color.Transparent;
-            this.toolInfo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolInfo.Image = ((System.Drawing.Image)(resources.GetObject("toolInfo.Image")));
-            this.toolInfo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolInfo.Name = "toolInfo";
-            this.toolInfo.Size = new System.Drawing.Size(33, 34);
-            this.toolInfo.Text = "toolStripButton1";
-            this.toolInfo.Click += new System.EventHandler(this.toolInfo_Click);
-            // 
-            // btn_Send_to_Core
-            // 
-            this.btn_Send_to_Core.Location = new System.Drawing.Point(6, 191);
-            this.btn_Send_to_Core.Name = "btn_Send_to_Core";
-            this.btn_Send_to_Core.Size = new System.Drawing.Size(155, 23);
-            this.btn_Send_to_Core.TabIndex = 2;
-            this.btn_Send_to_Core.Text = "Poslať do jadra";
-            this.btn_Send_to_Core.UseVisualStyleBackColor = true;
-            this.btn_Send_to_Core.Click += new System.EventHandler(this.btn_Send_to_Core_Click);
-            // 
             // graf_modul
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.toolStripContainer2);
             this.Controls.Add(this.splitContainer3);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStripContainer1);
@@ -620,18 +573,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.groupCon.ResumeLayout(false);
+            this.groupCon.PerformLayout();
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel1.PerformLayout();
             this.splitContainer3.Panel2.ResumeLayout(false);
             this.splitContainer3.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
-            this.tabPage1.ResumeLayout(false);
+            this.toolStripContainer2.BottomToolStripPanel.ResumeLayout(false);
+            this.toolStripContainer2.BottomToolStripPanel.PerformLayout();
+            this.toolStripContainer2.ResumeLayout(false);
+            this.toolStripContainer2.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -667,7 +628,14 @@
         private System.Windows.Forms.VScrollBar vScrollBar;
         private System.Windows.Forms.HScrollBar hScrollBar;
         private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.Button btn_Send_to_Core;
+        private System.Windows.Forms.ToolStripContainer toolStripContainer2;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton btn_Refresh;
+        private System.Windows.Forms.ToolStripButton btn_Send_To_Core;
+        private System.Windows.Forms.Label lbl_Koniec;
+        private System.Windows.Forms.Label lbl_Zaciatok;
+        private System.Windows.Forms.Label lbl_Nazov;
+        private System.Windows.Forms.Label lbl_typ;
 
 
     }

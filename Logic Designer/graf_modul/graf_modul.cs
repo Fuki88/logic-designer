@@ -603,8 +603,8 @@ namespace Digi_graf_modul
         {
             //int x = System.Windows.Forms.Cursor.Position.X - this.Location.X - pictureBox.Left - 5 - modX;
             //int y = System.Windows.Forms.Cursor.Position.Y - this.Location.Y - pictureBox.Top - 31 - modY;
-            int x = System.Windows.Forms.Cursor.Position.X - Logic_Designer.Form1.ActiveForm.Location.X - pictureBox.Left - 5 - modX;
-            int y = System.Windows.Forms.Cursor.Position.Y - Logic_Designer.Form1.ActiveForm.Location.Y - pictureBox.Top - 31 - modY;
+            int x = System.Windows.Forms.Cursor.Position.X - Logic_Designer.Form1.ActiveForm.Location.X - pictureBox.Left - 25 - modX;
+            int y = System.Windows.Forms.Cursor.Position.Y - Logic_Designer.Form1.ActiveForm.Location.Y - pictureBox.Top - 100 - modY;
             if (action == "delete") // co sa ma vykonat po stlaceni delete tlacidla
             {
                 Connection conx = null;
@@ -1265,8 +1265,8 @@ namespace Digi_graf_modul
         {
             //int x = System.Windows.Forms.Cursor.Position.X - this.Location.X - pictureBox.Left - 5 - modX;
             //int y = System.Windows.Forms.Cursor.Position.Y - this.Location.Y - pictureBox.Top - 31 - modY;
-            int x = System.Windows.Forms.Cursor.Position.X - Logic_Designer.Form1.ActiveForm.Location.X - pictureBox.Left - 5 - modX;
-            int y = System.Windows.Forms.Cursor.Position.Y - Logic_Designer.Form1.ActiveForm.Location.Y - pictureBox.Top - 31 - modY;
+            int x = System.Windows.Forms.Cursor.Position.X - Logic_Designer.Form1.ActiveForm.Location.X - pictureBox.Left - 25 - modX;
+            int y = System.Windows.Forms.Cursor.Position.Y - Logic_Designer.Form1.ActiveForm.Location.Y - pictureBox.Top - 100 - modY;
             //lblCoord.Text = "Pozicia: " + "X: " + x.ToString() + " Y: " + y.ToString(); //zobrazenie pozicie pri pohybe mysou
 
             if (/*action == "movenode" &&*/ mouseDown == true && e.Button == MouseButtons.Left)
@@ -1347,8 +1347,8 @@ namespace Digi_graf_modul
            
                // int x = System.Windows.Forms.Cursor.Position.X - this.Location.X - pictureBox.Left - 5 - modX;
                // int y = System.Windows.Forms.Cursor.Position.Y - this.Location.Y - pictureBox.Top - 31 - modY;
-               int x = System.Windows.Forms.Cursor.Position.X - Logic_Designer.Form1.ActiveForm.Location.X - pictureBox.Left - 5 - modX;
-               int y = System.Windows.Forms.Cursor.Position.Y - Logic_Designer.Form1.ActiveForm.Location.Y - pictureBox.Top - 31 - modY;
+               int x = System.Windows.Forms.Cursor.Position.X - Logic_Designer.Form1.ActiveForm.Location.X - pictureBox.Left - 25 - modX;
+               int y = System.Windows.Forms.Cursor.Position.Y - Logic_Designer.Form1.ActiveForm.Location.Y - pictureBox.Top - 100 - modY;
                 //lblCoord.Text = "X: " + x.ToString() + " Y: " + y.ToString();
                 
                 if (tip != null)
@@ -1373,7 +1373,7 @@ namespace Digi_graf_modul
                    
                     PaintMain();
                     
-                    gpic1.DrawLine(penpic1, portX, portY, x, y); // kresli prepojeni
+                    gpic1.DrawLine(penpic1, portX, portY, x+35, y+45); // kresli prepojeni
                     //g.Dispose();
 
                     return;
@@ -1510,8 +1510,8 @@ namespace Digi_graf_modul
             
            // int x = System.Windows.Forms.Cursor.Position.X - this.Location.X - pictureBox.Left - 5 - modX;
            // int y = System.Windows.Forms.Cursor.Position.Y - this.Location.Y - pictureBox.Top - 31 - modY;
-            int x = System.Windows.Forms.Cursor.Position.X - Logic_Designer.Form1.ActiveForm.Location.X - pictureBox.Left - 5 - modX;
-            int y = System.Windows.Forms.Cursor.Position.Y - Logic_Designer.Form1.ActiveForm.Location.Y - pictureBox.Top - 31 - modY;
+            int x = System.Windows.Forms.Cursor.Position.X - Logic_Designer.Form1.ActiveForm.Location.X - pictureBox.Left - 25 - modX;
+            int y = System.Windows.Forms.Cursor.Position.Y - Logic_Designer.Form1.ActiveForm.Location.Y - pictureBox.Top - 100 - modY;
             foreach (Connection con in Connections)
             {
                 int SportY = con.StartNode.Top + con.StartNode.Controls[con.StartPort - 1].Top + 2;
@@ -1773,7 +1773,7 @@ namespace Digi_graf_modul
             node.Left = x;
             node.Top = y;
             node.Text = active_gate.name;
-            
+            MessageBox.Show(active_gate.name);
             string value = node.Text;
             
 /* YYY
@@ -1870,8 +1870,8 @@ namespace Digi_graf_modul
                 pictureBox.Focus();
                // int x = System.Windows.Forms.Cursor.Position.X - this.Location.X - pictureBox.Left - 5 - modX;
                // int y = System.Windows.Forms.Cursor.Position.Y - this.Location.Y - pictureBox.Top - 31 - modY;
-                int x = System.Windows.Forms.Cursor.Position.X - Logic_Designer.Form1.ActiveForm.Location.X - pictureBox.Left - 5 - modX;
-                int y = System.Windows.Forms.Cursor.Position.Y - Logic_Designer.Form1.ActiveForm.Location.Y - pictureBox.Top - 31 - modY;
+                int x = System.Windows.Forms.Cursor.Position.X - Logic_Designer.Form1.ActiveForm.Location.X - pictureBox.Left - 25 - modX;
+                int y = System.Windows.Forms.Cursor.Position.Y - Logic_Designer.Form1.ActiveForm.Location.Y - pictureBox.Top - 100 - modY;
                 if (action == "addnode")
                 { // ak je akcia nastavena na pridavanie hradiel, vytvor hradlo na pictureboxe
                     action = tmp_action;
@@ -2136,8 +2136,8 @@ namespace Digi_graf_modul
         { //volaky tooltip
            // int x = System.Windows.Forms.Cursor.Position.X - this.Location.X - pictureBox.Left - 5 - modX;
            // int y = System.Windows.Forms.Cursor.Position.Y - this.Location.Y - pictureBox.Top - 31 - modY;
-            int x = System.Windows.Forms.Cursor.Position.X - Logic_Designer.Form1.ActiveForm.Location.X - pictureBox.Left - 5 - modX;
-            int y = System.Windows.Forms.Cursor.Position.Y - Logic_Designer.Form1.ActiveForm.Location.Y - pictureBox.Top - 31 - modY;
+            int x = System.Windows.Forms.Cursor.Position.X - Logic_Designer.Form1.ActiveForm.Location.X - pictureBox.Left - 25 - modX;
+            int y = System.Windows.Forms.Cursor.Position.Y - Logic_Designer.Form1.ActiveForm.Location.Y - pictureBox.Top - 100 - modY;
             
             //toolTipMain.AutomaticDelay = 1000;
             //toolTipMain.InitialDelay = 0;
@@ -2278,8 +2278,8 @@ namespace Digi_graf_modul
         {
             //int x = System.Windows.Forms.Cursor.Position.X - this.Location.X - pictureBox.Left - 5 - modX;
             //int y = System.Windows.Forms.Cursor.Position.Y - this.Location.Y - pictureBox.Top - 31 - modY;
-            int x = System.Windows.Forms.Cursor.Position.X - Logic_Designer.Form1.ActiveForm.Location.X - pictureBox.Left - 5 - modX;
-            int y = System.Windows.Forms.Cursor.Position.Y - Logic_Designer.Form1.ActiveForm.Location.Y - pictureBox.Top - 31 - modY;
+            int x = System.Windows.Forms.Cursor.Position.X - Logic_Designer.Form1.ActiveForm.Location.X - pictureBox.Left - 25 - modX;
+            int y = System.Windows.Forms.Cursor.Position.Y - Logic_Designer.Form1.ActiveForm.Location.Y - pictureBox.Top - 100 - modY;
             //toolTipMain.AutomaticDelay = 1000;
             //toolTipMain.InitialDelay = 0;
             //toolTipMain.SetToolTip(pictureBox, "asdasd");
@@ -2958,12 +2958,171 @@ namespace Digi_graf_modul
             foreach (NodeCtrl NOD in Nodes)
             Logic_Designer.Form1.SetNode(NOD.ID, NOD.ConIN, NOD.ConOut, NOD.Name, NOD.Type, NOD.Left, NOD.Top);
 
-            Logic_Designer.Form1.ClearCon();
+         
+           
+            Logic_Designer.Form1.MakeCons();
+           /* Logic_Designer.Form1.ClearCon();
             foreach (Connection CON in Connections)
             Logic_Designer.Form1.SetCon(CON.Name, CON.StartNode.Name, CON.EndNode.Name);
+            */
+            foreach (Logic_Designer.CONNECTION c in Logic_Designer.Form1.CONNECTIONS)
+                MessageBox.Show(c.Name);
+            MessageBox.Show("mam to");
+        }
 
+
+        public void NacUzly(string FileName)
+        {
+            ArrayList _Nodes = new ArrayList();
+
+            Cleanup();
+
+
+            Stream stream = File.Open(FileName, FileMode.Open);
+            BinaryFormatter bF = new BinaryFormatter();
+            _Nodes = (ArrayList)bF.Deserialize(stream);
+
+            ArrayList _Cons = new ArrayList();
+
+            string FileConName = FileName + "c";
+            Stream stream1 = File.Open(FileConName, FileMode.Open);
+            BinaryFormatter bF1 = new BinaryFormatter();
+            _Cons = (ArrayList)bF1.Deserialize(stream1);
+
+            foreach (PluginInterface.SavedCon conex in _Cons)
+            {
+
+                Connection con = new Connection();
+                con.Name = conex.Name;
+                Connections.Add(con);
+            }
+
+            foreach (PluginInterface.SavedNode nodex in _Nodes)
+            {
+                NodeCtrl node = new NodeCtrl();
+                node.ConIN = nodex.ConIN;
+                node.ConOut = nodex.ConOut;
+                node.Text = nodex.Name;
+                node.Type = nodex.Type;
+                node.ID = nodex.id;
+                node.Left = nodex.X;
+                node.Top = nodex.Y;
+                foreach (Gate g in Gates)
+                {
+                    if (g.name == node.Type)
+                        active_gate = g;
+                }
+                Nodes.Add(node);
+                //MessageBox.Show(node.ConIN.
+                LoadNodes(node);
+
+                foreach (Connection C in Connections)
+                {
+                    foreach (string co in node.ConOut)
+                    {
+                        if (co == C.Name) C.StartNode = node;
+                    }
+                    foreach (string ci in node.ConIN)
+                    {
+                        if (ci == C.Name) C.EndNode = node;
+                    }
+                }
+
+            }
+
+            stream1.Position = 0;
+            foreach (PluginInterface.SavedCon conex in _Cons)
+            {
+                foreach (Connection con in Connections)
+                {
+                    int a = 0;
+                    int b = 0;
+                    int p = 0;
+                    int q = 0;
+                    if (con.Name == conex.Name)
+                    {
+                        con.StartNode.Text = conex.StartNode;
+                        con.EndNode.Text = conex.EndNode;
+                        foreach (String n in con.StartNode.ConOut)
+                        {
+                            // MessageBox.Show("ConOut" + n);                         
+                            a++;
+                            if (n == con.Name)
+                            {
+                                p = a;
+                                /*      MessageBox.Show("Start"+p.ToString());
+                                      MessageBox.Show(n);
+                                      MessageBox.Show("meno prepojenia:" + con.Name);
+                                */
+                                int numb = con.StartNode.ConOut.IndexOf(n) + 1;
+                                PictureBox portx = null;
+                                foreach (PictureBox port in con.StartNode.Controls)
+                                {
+                                    //if (port.Tag.ToString() == numb.ToString())
+
+                                    if (port.Tag.ToString() == con.StartNode.PortCount.ToString())
+                                    {
+                                        portx = port;
+                                        //MessageBox.Show("portx:"+portx.Tag.ToString());
+                                        //continue;
+                                    }
+                                }
+
+                                Load_StartConnection(con, con.StartNode, numb, "", portx);
+                                // Load_StartConnection(con, ((NodeCtrl)FindNode(con.StartNode, n)[1]), ((int)FindNode(con.StartNode, n)[0]) + 2, "", portx);            
+                            }
+                        }
+                        foreach (String n in con.EndNode.ConIN)
+                        {
+                            b++;
+                            if (n == con.Name)
+                            {
+                                q = b;
+                                /* MessageBox.Show("End:" + q.ToString());
+                                 MessageBox.Show(n);
+                                 MessageBox.Show("meno prepojenia:" + con.Name);
+                                */
+                                // Load_EndConnection(con,((NodeCtrl)FindNode(con.EndNode, n)[0]), ((int)FindNode(con.EndNode, n)[1]) + 2, n);
+
+                                Load_EndConnection(con, con.EndNode, q, n);
+                            }
+                        }
+
+
+                    }
+                }
+
+
+            }
+            stream.Close();
+            stream1.Close();
+
+            PaintMain();
+            RefreshListCons();
+
+        }
+
+
+        public static void setChange() { 
+        
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            Logic_Designer.Form1.ClearNode();
+            foreach (NodeCtrl NOD in Nodes)
+                Logic_Designer.Form1.SetNode(NOD.ID, NOD.ConIN, NOD.ConOut, NOD.Name, NOD.Type, NOD.Left, NOD.Top);
+
+
+
+           // Logic_Designer.Form1.MakeCons();
+             Logic_Designer.Form1.ClearCon();
+             foreach (Connection CON in Connections)
+             Logic_Designer.Form1.SetCon(CON.Name, CON.StartNode.Name, CON.EndNode.Name);
+             
             foreach (Logic_Designer.NODE_CTRL c in Logic_Designer.Form1.NODES)
                 MessageBox.Show(c.Type);
+            MessageBox.Show("mam to");
         }
 
 

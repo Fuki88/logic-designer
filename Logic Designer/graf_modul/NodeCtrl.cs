@@ -205,5 +205,22 @@ namespace Digi_graf_modul
             tip.InitialDelay = 0;
         }
 
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // NodeCtrl
+            // 
+            this.Name = "NodeCtrl";
+            this.Load += new System.EventHandler(this.NodeCtrl_Load_1);
+            this.ResumeLayout(false);
+
+        }
+
+        private void NodeCtrl_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
