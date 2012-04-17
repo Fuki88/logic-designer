@@ -73,3 +73,16 @@ C:\skola\Timak\Real_SVN_Project\Logic Designer\obj\x86\Debug\GenerateResource.re
 C:\skola\Timak\Real_SVN_Project\Logic Designer\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\skola\Timak\Real_SVN_Project\Logic Designer\obj\x86\Debug\Digi_graf_modul.frmInfo.resources
 C:\skola\Timak\Real_SVN_Project\Logic Designer\obj\x86\Debug\Digi_graf_modul.FrmNazov.resources
+D:\work\Logic Designer - parsing\Logic Designer\obj\x86\Debug\Logic Designer.exe
+D:\work\Logic Designer - parsing\Logic Designer\obj\x86\Debug\Logic Designer.pdb
+D:\work\Logic Designer - parsing\Logic Designer\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\work\Logic Designer - parsing\Logic Designer\obj\x86\Debug\Logic_Designer.AboutBox1.resources
+D:\work\Logic Designer - parsing\Logic Designer\obj\x86\Debug\Logic_Designer.Form1.resources
+D:\work\Logic Designer - parsing\Logic Designer\obj\x86\Debug\Digi_graf_modul.frmInfo.resources
+D:\work\Logic Designer - parsing\Logic Designer\obj\x86\Debug\Digi_graf_modul.FrmNazov.resources
+D:\work\Logic Designer - parsing\Logic Designer\obj\x86\Debug\Digi_graf_modul.graf_modul.resources
+D:\work\Logic Designer - parsing\Logic Designer\obj\x86\Debug\Logic_Designer.NumberedRichTextBox.resources
+D:\work\Logic Designer - parsing\Logic Designer\obj\x86\Debug\Logic_Designer.Properties.Resources.resources
+D:\work\Logic Designer - parsing\Logic Designer\obj\x86\Debug\Logic_Designer.verifikacia.verifikacia.resources
+D:\work\Logic Designer - parsing\Logic Designer\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\work\Logic Designer - parsing\Logic Designer\obj\x86\Debug\GenerateResource.write.1.tlog
