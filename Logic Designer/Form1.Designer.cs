@@ -58,8 +58,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.graf_modul1 = new Digi_graf_modul.graf_modul();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.loadTextEditorModule = new System.Windows.Forms.OpenFileDialog();
             this.verifikacia1 = new Logic_Designer.verifikacia.verifikacia();
+            this.loadTextEditorModule = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -312,11 +312,11 @@
             // graf_modul1
             // 
             this.graf_modul1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.graf_modul1.Location = new System.Drawing.Point(0, 3);
-            this.graf_modul1.ModelName = "untitled";
+            this.graf_modul1.Location = new System.Drawing.Point(3, 3);
+            this.graf_modul1.ModelName = "";
             this.graf_modul1.ModelType = "Logic";
             this.graf_modul1.Name = "graf_modul1";
-            this.graf_modul1.Size = new System.Drawing.Size(963, 561);
+            this.graf_modul1.Size = new System.Drawing.Size(960, 561);
             this.graf_modul1.StateFirst = 0;
             this.graf_modul1.StateSecond = 0;
             this.graf_modul1.TabIndex = 1;
@@ -332,42 +332,22 @@
             this.tabPage3.Text = "Verification";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // loadTextEditorModule
-            // 
-            this.loadTextEditorModule.DefaultExt = "ldt";
-            this.loadTextEditorModule.FileName = "loadTextEditorModule";
-            this.loadTextEditorModule.Filter = "Logic Designer Text Editor Modules|*.dll|All files|*.*";
-            this.loadTextEditorModule.Title = "Choose Text Module";
-            // 
-            // numberedRichTextBox1
-            // 
-            this.numberedRichTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numberedRichTextBox1.Location = new System.Drawing.Point(3, 3);
-            this.numberedRichTextBox1.Name = "numberedRichTextBox1";
-            this.numberedRichTextBox1.Size = new System.Drawing.Size(960, 561);
-            this.numberedRichTextBox1.TabIndex = 0;
-            // 
-            // graf_modul1
-            // 
-            this.graf_modul1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.graf_modul1.Location = new System.Drawing.Point(3, 3);
-            this.graf_modul1.ModelName = "";
-            this.graf_modul1.ModelType = "Logic";
-            this.graf_modul1.Name = "graf_modul1";
-            this.graf_modul1.Size = new System.Drawing.Size(960, 561);
-            this.graf_modul1.StateFirst = 0;
-            this.graf_modul1.StateSecond = 0;
-            this.graf_modul1.TabIndex = 1;
-            this.graf_modul1.Load += new System.EventHandler(this.graf_modul1_Load);
-            // 
             // verifikacia1
             // 
+            this.verifikacia1.BackColor = System.Drawing.SystemColors.Control;
             this.verifikacia1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.verifikacia1.Location = new System.Drawing.Point(0, 0);
             this.verifikacia1.Name = "verifikacia1";
             this.verifikacia1.Size = new System.Drawing.Size(966, 567);
             this.verifikacia1.TabIndex = 0;
             this.verifikacia1.Load += new System.EventHandler(this.verifikacia1_Load);
+            // 
+            // loadTextEditorModule
+            // 
+            this.loadTextEditorModule.DefaultExt = "ldt";
+            this.loadTextEditorModule.FileName = "loadTextEditorModule";
+            this.loadTextEditorModule.Filter = "Logic Designer Text Editor Modules|*.dll|All files|*.*";
+            this.loadTextEditorModule.Title = "Choose Text Module";
             // 
             // Form1
             // 
@@ -380,6 +360,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Logic Designer v0.0";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);

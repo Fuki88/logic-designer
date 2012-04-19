@@ -108,6 +108,12 @@ namespace Logic_Designer
             if (textOpenFile.ShowDialog() == System.Windows.Forms.DialogResult.OK &&
                 textOpenFile.FileName.Length > 0)
             {
+                if (textOpenFile.FilterIndex == 2)
+                {
+                    Blif bl = new Blif();
+                    MessageBox.Show("nacitavam z blifka");
+                    bl.opblf(textOpenFile.FileName);
+                }
                 //nacitat do rich text boxu subor v plain texte
                 this.numberedRichTextBox1.textRichTextBox1.LoadFile(textOpenFile.FileName, RichTextBoxStreamType.PlainText);
 
@@ -167,6 +173,65 @@ namespace Logic_Designer
 
         }
 
+
+
+        public static bool UlozUzly(string FileName)
+        {
+            try
+            {
+                ArrayList _Nodes = new ArrayList();
+                Stream stream = File.Open(FileName, FileMode.Create);
+                BinaryFormatter bF = new BinaryFormatter();
+                foreach (NODE_CTRL node in NODES)
+                {
+                    PluginInterface.SavedNode _node = new PluginInterface.SavedNode();
+                    //... tu sa naplnaju vlastnosti objektu
+                    _node.ConIN = node.ConIN;
+                    _node.ConOut = node.ConOut;
+                    _node.Name = node.Text;
+                    _node.Type = node.Type;
+                    _node.id = node.ID;
+                    _node.X = node.Left;
+                    _node.Y = node.Top;
+                    // bF.Serialize(stream, _node);
+                    _Nodes.Add(_node);
+                }
+
+                bF.Serialize(stream, _Nodes);
+                stream.Close();
+                MessageBox.Show("uzavrel som stream");
+
+                string FileConName = FileName + "c";
+                ArrayList _Cons = new ArrayList();
+                stream = File.Open(FileConName, FileMode.Create);
+                bF = new BinaryFormatter();
+
+                foreach (CONNECTION con in CONNECTIONS)
+                {
+                    //myCons.Add(con);
+
+                    PluginInterface.SavedCon _con = new PluginInterface.SavedCon();
+                    _con.Name = con.Name;
+                    _con.StartNode = con.StartNode_Text;
+                    _con.EndNode = con.EndNode_Text;
+                    _Cons.Add(_con);
+
+
+                }
+                bF.Serialize(stream, _Cons);
+                stream.Close();
+                return true;
+
+
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        
+        
+        
         public static bool UlozUzly()
         {
             try
@@ -192,7 +257,7 @@ namespace Logic_Designer
 
                 stream.Close();
                 MessageBox.Show("uzavrel som stream");
-                stream = File.Open("arc_tmp.z5", FileMode.Create);
+                stream = File.Open("obvod_tmp.z5c", FileMode.Create);
                 bF = new BinaryFormatter();
 
                 foreach (CONNECTION con in CONNECTIONS)
@@ -201,6 +266,7 @@ namespace Logic_Designer
                     _con.Name = con.Name;
                     _con.StartNode = con.StartNode_Text;
                     _con.EndNode = con.EndNode_Text;
+                    MessageBox.Show(con.StartNode_Text); MessageBox.Show(con.EndNode_Text);
                     bF.Serialize(stream, _con);
                 }
                 stream.Close();
@@ -280,6 +346,7 @@ namespace Logic_Designer
             N.Left = x;
             N.Top = y;
             NODES.Add(N);
+
         }
 
         public static void MakeCons() { //vytvori prepojenia k nodom (ak nahodou neexistuju)
@@ -321,10 +388,16 @@ namespace Logic_Designer
 
             foreach (NODE_CTRL abc in NODES)
                 MessageBox.Show(abc.Type);
-
+            foreach (CONNECTION con in CONNECTIONS)
+                MessageBox.Show(con.Name);
         }
 
         private void verifikacia1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }

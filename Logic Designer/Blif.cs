@@ -183,6 +183,11 @@ namespace Logic_Designer
         {
             saveBlif(nazov);
         }
+
+        public void opblf(string nazov)
+        {
+            NacitajUzly(nazov);
+        }
         //SPRACOVANIE OBVODU DO SUBORU
         public void saveBlif(string nazov) //object sender, EventArgs e
         {
@@ -358,30 +363,30 @@ namespace Logic_Designer
         }
 
 
-        private void NacitajUzly()
+        public void NacitajUzly(string FileName)
         {
 
             //Nastavenie filtra suborov
-            cdbOpen.Filter = "BLIF súbory (*.blif)|*.blif";
-            cdbOpen.Title = "Typ súboru";
+            //cdbOpen.Filter = "BLIF súbory (*.blif)|*.blif";
+            //cdbOpen.Title = "Typ súboru";
 
             // uspesne otvorenie suboru
-            if (cdbOpen.ShowDialog() == DialogResult.OK)
-            {
+          //  if (cdbOpen.ShowDialog() == DialogResult.OK)
+          //  {
                
                 Form1.Cleanup();
-                this.txtFile.Clear();
-                this.txtVstupy.Clear();
-                this.textBoxObvod.Clear();
+               // this.txtFile.Clear();
+                //this.txtVstupy.Clear();
+                //this.textBoxObvod.Clear();
 
 
-                System.IO.TextReader tr = File.OpenText(cdbOpen.FileName);
-                this.txtFile.Text = tr.ReadToEnd();
-                tr.Close();
-                tr = null;
+                //System.IO.TextReader tr = File.OpenText(FileName);
+                //this.txtFile.Text = tr.ReadToEnd();
+                //tr.Close();
+                //tr = null;
 
 
-                System.IO.TextReader reader = File.OpenText(cdbOpen.FileName);
+                System.IO.TextReader reader = File.OpenText(FileName);
                 string line;                //premenna pre riadok v subore BLIF
                 Random rand = new Random(); //nahodna premenna
                 string nazov_modelu = null;        //meno modelu
@@ -843,11 +848,9 @@ namespace Logic_Designer
                 reader = null;
 
 
-            }
-
-
             Form1.MakeCons();
-            Form1.UlozUzly();
+            //Form1.UlozUzly();
+            Form1.UlozUzly("obvod_tmp.z5");
         }
 
     }
