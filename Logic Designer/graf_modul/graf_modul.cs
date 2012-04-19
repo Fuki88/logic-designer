@@ -1415,9 +1415,9 @@ namespace Digi_graf_modul
                     if (con.Path.IsOutlineVisible(x, y, penpic1))
                     {
                         //nastavenie informacii o danom spojeni v grupe dole (info)
-                        //lblStartNode.Text = con.StartNode.Text;
-                        //lblEndNode.Text = con.EndNode.Text;
-                        //lblNameCon.Text = con.Name;
+                        lbl_Zaciatok.Text = con.StartNode.Text;
+                        lbl_Koniec.Text = con.EndNode.Text;
+                        lbl_Nazov.Text = "Spojenie";
 
                         groupCon.Visible = true;
                         //MessageBox.Show(con.Name + " vnutri");
@@ -1483,10 +1483,10 @@ namespace Digi_graf_modul
 
         public void setGroupNode(string Name, int numIn, int numOut, string Type)
         { //zobrazenie v gruptexte dole pri pohybe mysou nad nodom
-            //lblNodeType.Text = Type;
-            //lblNameNode.Text = Name;
-           // lblPortIn.Text = numIn.ToString();
-            //lblPortOut.Text = numOut.ToString();
+           // lbl_typ.Text = Type;
+           // lbl_Nazov.Text = Name;
+           // lbl_Zaciatok.Text = numIn.ToString();
+           // lbl_Koniec.Text = numOut.ToString();
             //groupNode.Visible = true;
         }
 
@@ -1939,7 +1939,7 @@ namespace Digi_graf_modul
             listNodesMain.Items.Clear();
             foreach (NodeCtrl n in Nodes)
             {
-                ListViewItem item = new ListViewItem(n.Text);
+                ListViewItem item = new ListViewItem(n.Type);
                 item.Tag = n;
                 listNodesMain.Items.Add(item);
 
@@ -3210,6 +3210,11 @@ namespace Digi_graf_modul
             ConnectAll();
             */
             NacitajUzly("obvod_tmp.z5");
+        }
+
+        private void lbl_typ_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
