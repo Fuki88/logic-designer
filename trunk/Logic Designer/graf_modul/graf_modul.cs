@@ -360,8 +360,8 @@ namespace Digi_graf_modul
              //////////////////////////////
              */
             this.Visible = false;
-            FrmNazov nazov_modelu = new FrmNazov();
-            nazov_modelu.Show();
+           // FrmNazov nazov_modelu = new FrmNazov();
+           // nazov_modelu.Show();
            
             // frmNew frm = new frmNew();
             //frm.ShowDialog();
@@ -483,7 +483,7 @@ namespace Digi_graf_modul
                         draw = false;
                         foreach (Connection c in Connections)
                         {
-                            if (newName == c.Name && c != con)
+                            if ((newName == "OUT1" || newName == c.Name) && c != con)
                             {
                                 /*if (((c.StartNode == con.StartNode && c.StartPort == con.StartPort) || 
                                     (c.StartNode == con.EndNode && c.StartPort == con.EndPort) ||
@@ -1110,9 +1110,9 @@ namespace Digi_graf_modul
 
                         if (dlg == DialogResult.OK)
                         {
-                            if (value == "")
+                            if ((value == "") || (value == "OUT1"))
                             {
-                                MessageBox.Show("Musíte zadať názov!", "Upozornenie");
+                                MessageBox.Show("Musíte zadať názov, ktorý sa nesmie zhodovať s názvom iného portu (teda nie OUT1)", "Upozornenie");
                                 continue;
                             }
 
@@ -1136,6 +1136,7 @@ namespace Digi_graf_modul
                                         }
                                         else draw = true;
                                     }
+                                  
                                 }
 
                                 if (draw)
@@ -1773,7 +1774,7 @@ namespace Digi_graf_modul
             node.Left = x;
             node.Top = y;
             node.Text = active_gate.name;
-            MessageBox.Show(active_gate.name);
+           // MessageBox.Show(active_gate.name);
             string value = node.Text;
             
 /* YYY
@@ -2558,8 +2559,8 @@ namespace Digi_graf_modul
                             //continue;
                         }
                     }
-
-                     Load_StartConnection(con,con.StartNode, numb, "", portx);
+             
+                     Load_StartConnection(con,con.StartNode, con.StartNode.ConIN.Count+1, "", portx);
                    // Load_StartConnection(con, ((NodeCtrl)FindNode(con.StartNode, n)[1]), ((int)FindNode(con.StartNode, n)[0]) + 2, "", portx);            
                                 }
                             }
@@ -3119,13 +3120,97 @@ namespace Digi_graf_modul
              Logic_Designer.Form1.ClearCon();
              foreach (Connection CON in Connections)
              Logic_Designer.Form1.SetCon(CON.Name, CON.StartNode.Name, CON.EndNode.Name);
-             
-            foreach (Logic_Designer.NODE_CTRL c in Logic_Designer.Form1.NODES)
-                MessageBox.Show(c.Type);
-            MessageBox.Show("mam to");
+
+            
+           // foreach (Logic_Designer.NODE_CTRL c in Logic_Designer.Form1.NODES)
+                //MessageBox.Show(c.Type);
+            //MessageBox.Show("mam to");
+        }
+
+        public void CreateNode(int x, int y, int ID, string Name, string Type, string[] portsIN, string portsOUT)
+        {
+            foreach (Gate gatik in Gates)
+            {
+                if (gatik.name == Type)
+                {
+                    active_gate = gatik;
+                    break;
+                }
+                else
+                {
+                    //      MessageBox.Show("ee error");                    
+                }
+            }
+
+            //MessageBox.Show(x.ToString() + " " + y.ToString());
+            NodeCtrl node = new NodeCtrl();
+            node.Top = y;
+            node.Left = x;
+            node.Name = active_gate.name;
+            node.Type = Type;
+
+            node = SetNodeType(node);
+
+            node.MouseDown += new MouseEventHandler(node_MouseDown);
+            node.MouseUp += new MouseEventHandler(node_MouseUp);
+            node.MouseMove += new MouseEventHandler(node_MouseMove);
+            node.MouseClick += new MouseEventHandler(node_Click);
+            node.DoubleClick += new EventHandler(node_DoubleClick);
+            node.MouseEnter += new EventHandler(node_MouseEnter);
+
+            int ind = 0;
+            foreach (ConPort port in active_gate.PortsIN)
+            {
+                node.AddIn(port.x, port.y, portsIN[ind]);
+                ind++;
+            }
+
+            foreach (ConPort port in active_gate.PortsOUT)
+            {
+                node.AddOut(port.x, port.y, portsOUT);
+            }
+            node.ID = ID;
+            node.Text = Name;
+            //node = active_node;
+            //node.Position = new Point(nodePic.Left, nodePic.Top);
+            Nodes.Add(node);
+            pictureBox.Controls.Add(node);
+            PaintMain();
+            RefreshListNodes();
+            //MainSurface1.Invalidate();
         }
 
 
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+
+
+            Cleanup();
+            /*foreach (Logic_Designer.NODE_CTRL uz in Logic_Designer.Form1.NODES)
+            {
+                String[] SsI = new String[7];
+                int integ = 0;
+                String SsO = null;
+
+                foreach (string Str in uz.ConIN)
+                {
+                    MessageBox.Show(Str);
+                    SsI[integ] = Str;
+                    integ++;
+                }
+
+                foreach (string Str in uz.ConOut)
+                    SsO = Str;
+
+                CreateNode(uz.Top, uz.Left, uz.ID, uz.Text, uz.Type, SsI, SsO);
+
+            }
+
+            ConnectAll();
+            */
+            NacitajUzly("obvod_tmp.z5");
+        }
 
     }
 }
