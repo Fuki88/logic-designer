@@ -57,6 +57,7 @@ namespace Digi_graf_modul
 
             foreach (string str in functions)
             {
+                MessageBox.Show(str);
                 listFunc.Items.Add(str);
             }
 

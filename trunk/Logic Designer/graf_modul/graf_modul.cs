@@ -3120,7 +3120,7 @@ namespace Digi_graf_modul
              Logic_Designer.Form1.ClearCon();
              foreach (Connection CON in Connections)
              Logic_Designer.Form1.SetCon(CON.Name, CON.StartNode.Name, CON.EndNode.Name);
-
+             Logic_Designer.Form1.UlozUzly("obvod_tmp.z5");
             
            // foreach (Logic_Designer.NODE_CTRL c in Logic_Designer.Form1.NODES)
                 //MessageBox.Show(c.Type);
