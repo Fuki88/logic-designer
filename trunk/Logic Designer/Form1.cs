@@ -236,7 +236,7 @@ namespace Logic_Designer
         {
             try
             {
-                Stream stream = File.Open("obvod_tmp.z5", FileMode.Create);
+                Stream stream = File.Open("blif_obvod_tmp.z5", FileMode.Create);
                 BinaryFormatter bF = new BinaryFormatter();
 
                 foreach (NODE_CTRL node in NODES)
@@ -270,9 +270,10 @@ namespace Logic_Designer
                     bF.Serialize(stream, _con);
                 }
                 stream.Close();
+                UlozUzly("obvod_tmp.z5");
                 return true;
 
-
+                
             }
             catch
             {

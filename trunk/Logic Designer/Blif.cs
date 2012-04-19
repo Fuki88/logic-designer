@@ -205,7 +205,7 @@ namespace Logic_Designer
             int pocet_obj = 0;
             try
             {
-                stream = File.Open("obvod_tmp.z5", FileMode.Open);
+                stream = File.Open("blif_obvod_tmp.z5", FileMode.Open);
                 BinaryFormatter bF = new BinaryFormatter();
                 //stream.Position = 0;
 
