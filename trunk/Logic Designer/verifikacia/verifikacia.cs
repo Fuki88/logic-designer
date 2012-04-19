@@ -452,6 +452,7 @@ namespace Logic_Designer.verifikacia
             string[] vystupy = new string[totalOUTgates];
             IN tmp;
             OUT outTmp;
+            bool err = true;
 
             //inicializovat vystupy
             for(int j = 0; j <  totalOUTgates; j++)
@@ -482,7 +483,7 @@ namespace Logic_Designer.verifikacia
                     }
                 }
                 //vypocita hodnoty v obvode
-                resolveCircuit();
+                err = resolveCircuit();
 
                 //ulozi hodnoty do premennych pre kazdy vystup
                 for(int j = 0; j <  totalOUTgates; j++)
@@ -497,7 +498,13 @@ namespace Logic_Designer.verifikacia
             {
                 output = output + vystupy[j] + "\r\n";
             }
-            
+
+            //skontroluje ci boli vsetky OUT zapojene
+            if (err == false)
+            {
+                MessageBox.Show("Nezapojili ste vsetky vystupy 'OUT' k hradlam - hodnota nezapojeneho vystupneho vektora ostane nulova");
+            }
+
             return output;
         }
 
@@ -686,10 +693,76 @@ namespace Logic_Designer.verifikacia
             }
         }
 
-        //prepocita obvod hodnoty v obvode
-        private void resolveCircuit()
+        //ma cenu vobec obvod vyhodnotit?
+        private bool startResolving()
         {
-            bool endSim = false;
+            int o = 0; //sem sa zrataju vsetky vystupy
+            int i = 0; //sem sa zrataju vsetky vstupy
+
+            bool err_i = true;
+
+            bool result = true;
+
+            //zrata IN a OUT
+            foreach (Gate Gate in Gates)
+            {
+                //skontroluje OUT
+                if (Gate.type == "OUT")
+                {
+                    o++;
+                }
+
+                //skontroluje IN
+                if (Gate.type == "IN")
+                {
+                    i++;
+
+                    foreach (Connection Con in Connections)
+                    {
+                        //MessageBox.Show("ID= " + Gate.ID.ToString() + "\ndetail= " + Gate.ToString() + "\nCon= " + Con.Name + "\nStartGate= " + Con.StartGateID + "\nEndGate= " + Con.EndGateID);
+                        if (Con.StartGateID == Gate.ID)
+                        {
+                            err_i = false; //ak existuje aspon jeden zapojeny IN
+                        }
+                    }
+                }
+            }
+
+            if (i == 0 && o == 0)
+            {
+                MessageBox.Show("Nepridali a nezapojili ste ziadne vstupy 'IN' a vystupy 'OUT' k hradlam - obvod nemozno vyhodnotit");
+                result = false;
+            }
+            else
+            {
+                if (i == 0)
+                {
+                    MessageBox.Show("Nepridali a nezapojili ste ziadne vstupy 'IN' - obvod nemozno vyhodnotit");
+                    result = false;
+                }
+                if (o == 0)
+                {
+                    MessageBox.Show("Nepridali a nezapojili ste ziadne vystupy 'OUT' k hradlam - obvod nemozno vyhodnotit");
+                    result = false;
+                }
+            }
+
+            if (err_i == true && i != 0 && o != 0)
+            {
+                MessageBox.Show("Nezapojili ste ani jeden vstup 'IN' k hradlu - obvod nemozno vyhodnotit");
+                result = false;
+            }
+
+            return result;
+        }
+
+        //prepocita obvod hodnoty v obvode
+        private bool resolveCircuit()
+        {
+            bool becameRoot = false; //kontrolujem ci sa tejto iteracii stal aspon jeden obvod rootom, ak nie tak ukoncim simulaciu
+            bool endSim = false; //ak true tak skonci simulacia
+
+            bool result = true;
 
             while (endSim == false)
             {
@@ -709,9 +782,10 @@ namespace Logic_Designer.verifikacia
                                     //nastavujem iba predtym nenastavene porty
                                     if (gate.set < gate.InConnection && gate.set >= 0)
                                     {
-                                        //MessageBox.Show("ID= " + gate.ID.ToString() + " " + gate.ToString() + "\nset= " + gate.set.ToString() + "\nInCon= " + gate.InConnection.ToString() + "\nOutPorts= " + gate.OutPorts.Length);
+                                        //MessageBox.Show("1 ID= " + gate.ID.ToString() + " " + gate.ToString() + "\nset= " + gate.set.ToString() + "\nInCon= " + gate.InConnection.ToString() + "\nOutPorts= " + gate.OutPorts.Length);
                                         gate.InPorts[gate.set] = Con.Value;
                                         gate.set++;
+                                        //MessageBox.Show("2 ID= " + gate.ID.ToString() + " " + gate.ToString() + "\nset= " + gate.set.ToString() + "\nInCon= " + gate.InConnection.ToString() + "\nOutPorts= " + gate.OutPorts.Length);
                                     }
 
                                     //MessageBox.Show("ID= " + gate.ID.ToString() + " " + gate.ToString() + "\nset= " + gate.set.ToString() + "\nInCon= " + gate.InConnection.ToString() + "\nOutPorts= " + gate.OutPorts.Length);
@@ -719,7 +793,8 @@ namespace Logic_Designer.verifikacia
                                     if (gate.set >= gate.InConnection)
                                     {
                                         gate.root = true;
-                                        gate.function(); //ak sa stane rootom tak ju uz mozem vyhodnotit
+                                        gate.function(); //ak sa stane rootom tak ju uz musim vyhodnotit
+                                        becameRoot = true;
                                     }
                                 }
                             }
@@ -741,6 +816,7 @@ namespace Logic_Designer.verifikacia
                     //MessageBox.Show("ID= " + gate.ID.ToString() + " " + gate.ToString() +"\nResult= " + gate.OutPorts[0].ToString() + "\nRoot= " + gate.root.ToString());
                 }
 
+                /*
                 //skontrolujem ci uz niesom na konci nahodou(kontrolujem iba zapojene OUTy), ak som na konci tak maju vsetky zapojene OUT hodnotu root
                 endSim = true;
                 foreach (Connection Con in Connections)
@@ -754,16 +830,36 @@ namespace Logic_Designer.verifikacia
                         //MessageBox.Show("ID= " + outGate.ID.ToString() +" " + outGate.ToString() + "\nResult= " + outGate.OutPorts[0].ToString() + "\nRoot= " + outGate.root.ToString());
                     }
                 }
-                
+                */
+
+                //skontrolujem ci som uz na konci, ak ano tak vsetky gate maju nastavene vsetky zapojene inporty
+                endSim = true;
+                foreach (Gate Gate in Gates)
+                {
+                    if (becameRoot == true && Gate.set < Gate.InConnection)
+                    {
+                        //MessageBox.Show("ID= " + Gate.ID.ToString() + " " + Gate.ToString() + "\nResult= " + Gate.OutPorts[0].ToString() + "\nRoot= " + Gate.root.ToString() + "\nset= " + Gate.set.ToString() + "\nInCon= " + Gate.InConnection.ToString());
+                        endSim = false;
+                    }
+                    //MessageBox.Show("ID= " + Gate.ID.ToString() +" " + Gate.ToString() + "\nResult= " + Gate.OutPorts[0].ToString() + "\nRoot= " + Gate.root.ToString());
+                }
+
+                /*
                 foreach (Gate gate in Gates)
                 {
-                    //MessageBox.Show("ID= " + gate.ID.ToString() + " " + gate.ToString() + "\nResult= " + gate.OutPorts[0].ToString() + "\nRoot= " + gate.root.ToString());
+                    MessageBox.Show("ID= " + gate.ID.ToString() + " " + gate.ToString() + "\nResult= " + gate.OutPorts[0].ToString() + "\nRoot= " + gate.root.ToString());
                 }
+                */
+                becameRoot = false;
             }
 
             //naspat resetnut rootov iba na IN, a set na 0 vsade
             foreach (Gate gate in Gates)
             {
+                if (gate.type == "OUT" && gate.set == 0)
+                {
+                    result = false;
+                }
                 gate.set = 0;
                 if (gate.type == "IN")
                 {
@@ -774,6 +870,8 @@ namespace Logic_Designer.verifikacia
                     gate.root = false;
                 }
             }
+
+            return result;
         }
         
         private void btnSimulate_Click(object sender, EventArgs e)
@@ -790,7 +888,10 @@ namespace Logic_Designer.verifikacia
                 loadConnections();
                 loadGates();
 
-                textBox1.Text = getTruthVector();
+                if (startResolving() == true)
+                {
+                    textBox1.Text = getTruthVector();
+                }
 
                 Gates.Clear();
                 Connections.Clear();
