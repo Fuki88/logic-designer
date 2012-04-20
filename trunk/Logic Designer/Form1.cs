@@ -403,5 +403,16 @@ namespace Logic_Designer
 
         }
 
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedIndex == 1)
+            {
+                ParseVHDL parser = new ParseVHDL();
+                parser.Parse(this.numberedRichTextBox1.textRichTextBox1.Text);
+                parser.Draw();
+                
+            }
+        }
+
     }
 }
