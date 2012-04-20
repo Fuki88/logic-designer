@@ -2447,7 +2447,6 @@ namespace Digi_graf_modul
             
                 bF.Serialize(stream, _Nodes);
                 stream.Close();
-                MessageBox.Show("uzavrel som stream");
 
                 string FileConName = FileName + "c"; 
                 ArrayList _Cons = new ArrayList();
@@ -2468,6 +2467,7 @@ namespace Digi_graf_modul
                 }
                 bF.Serialize(stream, _Cons);
                 stream.Close();
+                MessageBox.Show("uzavrel som stream");
                 return true;
                
 
