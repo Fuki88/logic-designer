@@ -924,8 +924,8 @@ namespace Logic_Designer.verifikacia
         public Graphics gpic1;
         public SolidBrush brushpic1;
         public Pen penpic1;
-        public Pen penFalse = new Pen(Color.Red, 1f);
-        public Pen penTrue = new Pen(Color.Green, 1f);
+        public Pen penFalse = new Pen(Color.Red, 2f);
+        public Pen penTrue = new Pen(Color.Green, 2f);
 
         public static System.Windows.Forms.PictureBox pictureBox;
 
@@ -948,24 +948,38 @@ namespace Logic_Designer.verifikacia
             pictureBox = pictureBox1;
         }
 
+        public bool conVal(Digi_graf_modul.Connection connection)
+        {
+            bool result = true;
+            foreach (Connection con in Connections)
+            {
+                if (con.Name == connection.Name)
+                {
+                    result = con.Value;
+                    return result;
+                }
+            }
+
+            return result;
+        }
+
         public void paintAll()
         {
-            //pictureBox1.Invalidate(false);
-            //pictureBox1.Update();
+            pictureBox1.Invalidate(false);
+            pictureBox1.Update();
             pictureBox1_Paint(pictureBox1, new PaintEventArgs(pictureBox1.CreateGraphics(), new Rectangle(0, 0, pictureBox1.Width, pictureBox1.Height)));
+        }
+
+        public void clearPaint()
+        {
+            pictureBox1.Invalidate(false);
+            pictureBox1.Update();
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
                 Graphics g = e.Graphics;
 
-                g.DrawEllipse(new Pen(Color.Red, 2f), 10, 10, 100, 100);
-
-                g.DrawRectangle(new Pen(Color.Red, 2f), 100, 100, 200, 200);
-
-                g.Dispose();
-
-                /*
                 brushpic1.Color = Color.Black;
 
                 foreach (Digi_graf_modul.Connection con in Digi_graf_modul.graf_modul.form.Connections)
@@ -976,10 +990,28 @@ namespace Logic_Designer.verifikacia
                     con.End = new Point(con.EndNode.Left + con.EndPortPic.Left, con.EndNode.Top + con.EndPortPic.Top);
 
                     con.RefreshPath();
+                    if (conVal(con) == true)
+                    {
+                        penpic1 = penTrue;
+                    }
+                    else
+                    {
+                        penpic1 = penFalse;
+                    }
+
                     g.DrawPath(penpic1, con.Path);
                     brushpic1.Color = Color.Black;
                     if (con.Type == "ARC") g.FillPie(brushpic1, con.End.X - 20, con.End.Y - 20, 40, 40, con.startAngle, 45);
-                    brushpic1.Color = Color.Blue;
+
+                    if (conVal(con) == true)
+                    {
+                        brushpic1.Color = Color.Green;
+                    }
+                    else
+                    {
+                        brushpic1.Color = Color.Red;
+                    }
+
                     foreach (Point pt in con.Points)
                     {
                         if (pt != con.Start && pt != con.End)
@@ -989,78 +1021,103 @@ namespace Logic_Designer.verifikacia
                     }
                 
                 }
-                */
-        }
 
+                g.Dispose();
+        }
 
         //Digi_graf_modul.NodeCtrl Node in Digi_graf_modul.graf_modul.form.Nodes
         //Digi_graf_modul.Connection Con in Digi_graf_modul.graf_modul.form.Connections
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //paintAll();
-
-            /*
-            foreach (Digi_graf_modul.NodeCtrl Node in Digi_graf_modul.graf_modul.form.Nodes)
-            {
-                
-
-                
-                //Graphics g = e.Graphics;
-                System.Drawing.Bitmap pic = new System.Drawing.Bitmap(this.pictureBox.Image, pictureBox.Width, pictureBox.Height);
-                System.Drawing.Rectangle rect = new System.Drawing.Rectangle(10, 10, 200, 200);
-                Node.DrawToBitmap(pic, rect);
-
-                Graphics g = pictureBox.CreateGraphics();
-                SolidBrush b = new SolidBrush(Color.Black);
-                g.DrawString(Node.Text, new Font(Node.Font, FontStyle.Regular), b, new Point(50 / 2 - Node.Text.Length / 2 * 10, 50 / 2 - 7));
-                
-            }
-            //PaintMain();
-            */
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
+        public void initViz()
         {
             loadConnections();
             loadGates();
-
-            resolveCircuit();
-
-            Graphics g = pictureBox1.CreateGraphics();
 
             foreach (Digi_graf_modul.NodeCtrl Node in Digi_graf_modul.graf_modul.form.Nodes)
             {
                 pictureBox1.Controls.Add(Node);
             }
-
-            foreach (Connection Con in Connections)
-            {
-                if(Con.Value == true)
-                {
-                    g.DrawLine(penTrue, Con.startP, Con.endP);
-                }
-                if (Con.Value == false)
-                {
-                    g.DrawLine(penFalse, Con.startP, Con.endP);
-                }
-            }
-
-            g.Dispose();
-            //Digi_graf_modul.graf_modul.form.verNodes();
-
-            Gates.Clear();
-            Connections.Clear();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void cancelViz()
         {
             foreach (Digi_graf_modul.NodeCtrl Node in Digi_graf_modul.graf_modul.form.Nodes)
             {
                 Digi_graf_modul.graf_modul.form.pictureBox.Controls.Add(Node);
             }
+
+            Gates.Clear();
+            Connections.Clear();
         }
 
+        public void refresh()
+        {
+            resolveCircuit();
+            paintAll();
+        }
 
+        //refresh
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            initViz();
+            refresh();
+        }
+
+        //send_back
+        private void button2_Click(object sender, EventArgs e)
+        {
+            cancelViz();
+            clearPaint();
+        }
+
+        //otoci hodnotu v hradle IN, na ktore klniknem
+        private void changeInVal(int x, int y)
+        {
+            int c = 20;
+            IN tmp;
+
+            foreach (Connection con in Connections)
+            {
+                foreach (Gate gate in Gates)
+                {
+                    if (con.StartGateID == gate.ID && gate.type == "IN")
+                    {
+                        //MessageBox.Show("x=" + x + "\ny=" + y + "\n\nIn x=" + con.startP.X + "\n\nIn y=" + con.startP.Y);
+                        if (((x > con.startP.X - c && y > con.startP.Y - c) && (x < con.startP.X + c && y < con.startP.Y + c)))
+                        {
+                            tmp = (IN)gate;
+                            tmp.toggleOutPortValue();
+                        }
+                    }
+                }
+            }
+        }
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            switch (e.Button)
+            {
+                case MouseButtons.Left:
+                    changeInVal(e.X, e.Y);
+                    refresh();
+                    break;
+                case MouseButtons.Right:
+                    break;
+                case MouseButtons.Middle:
+                    break;
+                default:
+                    break;
+            } 
+        }
+
+        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            switch (e.Button)
+            {
+                default:
+                    paintAll();
+                    break;
+            } 
+        }
     }
 }
