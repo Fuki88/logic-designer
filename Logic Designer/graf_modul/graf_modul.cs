@@ -2467,7 +2467,7 @@ namespace Digi_graf_modul
                 }
                 bF.Serialize(stream, _Cons);
                 stream.Close();
-                MessageBox.Show("uzavrel som stream");
+                //MessageBox.Show("uzavrel som stream");
                 return true;
                
 

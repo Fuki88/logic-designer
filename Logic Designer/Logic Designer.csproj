@@ -146,6 +146,7 @@
     <EmbeddedResource Include="verifikacia\verifikacia.resx">
       <DependentUpon>verifikacia.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="help.chm" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
