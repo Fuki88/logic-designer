@@ -50,6 +50,10 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.listViewMain = new System.Windows.Forms.ListView();
             this.groupCon = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.lbl_Koniec = new System.Windows.Forms.Label();
             this.lbl_Zaciatok = new System.Windows.Forms.Label();
             this.lbl_Nazov = new System.Windows.Forms.Label();
@@ -67,10 +71,6 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btn_Refresh = new System.Windows.Forms.ToolStripButton();
             this.btn_Send_To_Core = new System.Windows.Forms.ToolStripButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.toolStrip3.SuspendLayout();
@@ -392,6 +392,42 @@
             this.groupCon.Text = "Podrobnosti";
             this.groupCon.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(70, 93);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(40, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Koniec";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(70, 69);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Začiatok";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(70, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(28, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Typ:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(70, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Názov:";
+            // 
             // lbl_Koniec
             // 
             this.lbl_Koniec.AutoSize = true;
@@ -561,42 +597,6 @@
             this.btn_Send_To_Core.Text = "Save to core";
             this.btn_Send_To_Core.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(70, 44);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Názov:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(70, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Typ:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(70, 69);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Začiatok";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(70, 93);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 13);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Koniec";
-            // 
             // graf_modul
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -676,7 +676,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.VScrollBar vScrollBar;
         private System.Windows.Forms.HScrollBar hScrollBar;
-        private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.ToolStripContainer toolStripContainer2;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btn_Refresh;
@@ -689,6 +688,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.PictureBox pictureBox;
 
 
     }

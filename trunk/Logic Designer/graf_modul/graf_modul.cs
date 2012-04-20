@@ -23,9 +23,7 @@ namespace Digi_graf_modul
     {
 
        // bool paint = false;
-
-
-        struct ConPort
+        public struct ConPort
         {
             public int x;
             public int y;
@@ -627,6 +625,7 @@ namespace Digi_graf_modul
                     pictureBox.Controls.Remove(conx.lblStart);
                     pictureBox.Controls.Remove(conx.lblEnd);
                     pictureBox.Controls.Remove(conx.lblMid);
+
                     tmpCon.Clear();
                     RefreshListCons();
 
@@ -792,6 +791,7 @@ namespace Digi_graf_modul
                 {
                     con.lblEnd.Text = con.Name;
                     pictureBox.Controls.Add(con.lblEnd);
+
                     con.lblStart.Text = con.Name;
                     pictureBox.Controls.Add(con.lblStart);
                 }
@@ -886,6 +886,7 @@ namespace Digi_graf_modul
               //{
                   con.lblEnd.Text = con.Name;
                   pictureBox.Controls.Add(con.lblEnd);
+
                   con.lblStart.Text = con.Name;
                   pictureBox.Controls.Add(con.lblStart);
               //}
@@ -1048,6 +1049,7 @@ namespace Digi_graf_modul
                 {
                     con.lblEnd.Text = con.Name;
                     pictureBox.Controls.Add(con.lblEnd);
+
                     con.lblStart.Text = con.Name;
                     pictureBox.Controls.Add(con.lblStart);
                 }
@@ -1222,6 +1224,7 @@ namespace Digi_graf_modul
                 {
                     con.lblEnd.Text = con.Name;
                     pictureBox.Controls.Add(con.lblEnd);
+
                     con.lblStart.Text = con.Name;
                     pictureBox.Controls.Add(con.lblStart);
                 }
@@ -1574,8 +1577,12 @@ namespace Digi_graf_modul
             pictureBox_Paint(pictureBox, new PaintEventArgs(pictureBox.CreateGraphics(), new Rectangle(0, 0, pictureBox.Width, pictureBox.Height)));
             pictureBox.Invalidate(false);
             pictureBox.Update();
-      }
 
+            pictureBox_Paint(Logic_Designer.verifikacia.verifikacia.pictureBox, new PaintEventArgs(Logic_Designer.verifikacia.verifikacia.pictureBox.CreateGraphics(), new Rectangle(0, 0, pictureBox.Width, pictureBox.Height)));
+            Logic_Designer.verifikacia.verifikacia.pictureBox.Invalidate(false);
+            Logic_Designer.verifikacia.verifikacia.pictureBox.Update();
+      }
+        
         private void PaintMain(Rectangle rect)
         {
             pictureBox.Invalidate(rect, false);
@@ -1583,7 +1590,7 @@ namespace Digi_graf_modul
             //pictureBox1_Paint(MainSurface1, new PaintEventArgs(MainSurface1.CreateGraphics(), new Rectangle(0, 0, MainSurface1.Width, MainSurface1.Height)));
            pictureBox_Paint(pictureBox, new PaintEventArgs(gpic1, new Rectangle(0, 0, pictureBox.Width, pictureBox.Height)));
         }
-
+        
         private void listViewMain_MouseDown(object sender, MouseEventArgs e)
         {
             Point p = listViewMain.PointToClient(new Point(Cursor.Position.X, Cursor.Position.Y));
@@ -1680,6 +1687,9 @@ namespace Digi_graf_modul
         {
             pictureBox.Update();
             pictureBox_Paint(pictureBox, new PaintEventArgs(gpic1, new Rectangle(0, 0, pictureBox.Width, pictureBox.Height)));
+
+            //Logic_Designer.verifikacia.verifikacia.pictureBox.Update();
+            //pictureBox_Paint(Logic_Designer.verifikacia.verifikacia.pictureBox, new PaintEventArgs(gpic1, new Rectangle(0, 0, Logic_Designer.verifikacia.verifikacia.pictureBox.Width, Logic_Designer.verifikacia.verifikacia.pictureBox.Height)));
         }
 
         private void node_Click(object sender, EventArgs e)
@@ -1829,12 +1839,15 @@ namespace Digi_graf_modul
             }
             node.BackColor = Color.Transparent;
             Nodes.Add(node);
+
             pictureBox.Controls.Add(node);
+
             PaintMain();
             
             RefreshListNodes();
        
         }
+
 
         //XXX nasa funkcia
         public void LoadNodes(NodeCtrl node)
@@ -1860,6 +1873,7 @@ namespace Digi_graf_modul
             }
             node.BackColor = Color.Transparent;
             pictureBox.Controls.Add(node);
+
             PaintMain();
 
             RefreshListNodes();
@@ -1949,7 +1963,7 @@ namespace Digi_graf_modul
 
         }
 
-        private NodeCtrl SetNodeType(NodeCtrl node)
+        public NodeCtrl SetNodeType(NodeCtrl node)
         {
             foreach (tmpNode uzlicek in _nodes)
             {
@@ -3175,6 +3189,7 @@ namespace Digi_graf_modul
             //node.Position = new Point(nodePic.Left, nodePic.Top);
             Nodes.Add(node);
             pictureBox.Controls.Add(node);
+
             PaintMain();
             RefreshListNodes();
             //MainSurface1.Invalidate();
@@ -3216,6 +3231,5 @@ namespace Digi_graf_modul
         {
 
         }
-
     }
 }
