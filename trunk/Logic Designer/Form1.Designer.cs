@@ -60,6 +60,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.verifikacia1 = new Logic_Designer.verifikacia.verifikacia();
             this.loadTextEditorModule = new System.Windows.Forms.OpenFileDialog();
+            this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -214,6 +215,7 @@
             this.modulesToolStripMenuItem.Name = "modulesToolStripMenuItem";
             this.modulesToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.modulesToolStripMenuItem.Text = "Load Modules";
+            this.modulesToolStripMenuItem.Visible = false;
             // 
             // loadModuleToolStripMenuItem
             // 
@@ -240,7 +242,8 @@
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutLogicDesignerToolStripMenuItem});
+            this.aboutLogicDesignerToolStripMenuItem,
+            this.helpToolStripMenuItem1});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
@@ -350,6 +353,14 @@
             this.loadTextEditorModule.Filter = "Logic Designer Text Editor Modules|*.dll|All files|*.*";
             this.loadTextEditorModule.Title = "Choose Text Module";
             // 
+            // helpToolStripMenuItem1
+            // 
+            this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
+            this.helpToolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(194, 22);
+            this.helpToolStripMenuItem1.Text = "Help";
+            this.helpToolStripMenuItem1.Click += new System.EventHandler(this.helpToolStripMenuItem1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -410,6 +421,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutLogicDesignerToolStripMenuItem;
         public Digi_graf_modul.graf_modul graf_modul1;
         private verifikacia.verifikacia verifikacia1;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
     }
 }
 

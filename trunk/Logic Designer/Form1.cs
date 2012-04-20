@@ -414,5 +414,10 @@ namespace Logic_Designer
             }
         }
 
+        private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "help.chm");
+        }
+
     }
 }
