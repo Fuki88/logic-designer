@@ -1,25 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Collections;
+using System.Resources;
+using System.Reflection;
+using System.IO;
 
 namespace Logic_Designer.verifikacia
 {
     public partial class verifikacia : UserControl
     {
-        public verifikacia()
-        {
-            InitializeComponent();
-        }
+        
+        //---------------------------------------------------------------------------------------------------
+        //Pravdivostny vektor
+        //---------------------------------------------------------------------------------------------------
 
         //sem sa ulozia vsetky uzly a spojenia - uchovaju hodnotu
         public ArrayList Gates = new ArrayList();
         public ArrayList Connections = new ArrayList();
+        public int lolnatretiu;
 
         //reprezentuje logicke hradlo vo vseobecnosti 
         public class Gate
@@ -375,6 +380,8 @@ namespace Logic_Designer.verifikacia
             public bool Value;
             public int StartGateID;
             public int EndGateID;
+            public Point startP;
+            public Point endP;
 
             public Connection(string Name)
             {
@@ -688,6 +695,8 @@ namespace Logic_Designer.verifikacia
                     tmpCon.StartGateID = Con.EndNode.ID;
                     tmpCon.EndGateID = Con.StartNode.ID;
                 }
+                tmpCon.startP = Con.Start;
+                tmpCon.endP = Con.End;
                 Connections.Add(tmpCon);
                 //MessageBox.Show(tmpCon.Name + "\n" + tmpCon.StartGateID.ToString() + "\n" + tmpCon.EndGateID.ToString());
             }
@@ -878,13 +887,7 @@ namespace Logic_Designer.verifikacia
         {      
             try 
             {
-                //aby sa mohol obvod vyhodnotit, tak musia byt priradene vstupy na IN a vystupy na OUT
-                //connection ma StartNode a EndNode (treba vsak dat pozor, lebo to zalezi iba od smeru ako sa to nakresli)
-                //connection ma unikatny nazov Name
-                //NodeCtrl ma Type a ID
-                //problem moze byt, ze ktory connection vybrat tak aby to islo vzdy smerom k OUT (treba nejak cez ConIN a ConOUT)
-
-                //najprv sa musia nacitat spojenia!!!
+                //najprv sa musia nacitat spojenia (pred hradlami)!!!
                 loadConnections();
                 loadGates();
 
@@ -902,7 +905,7 @@ namespace Logic_Designer.verifikacia
             }
             catch (Exception exception)
             {
-                MessageBox.Show("V grafickom editore sa nenachadza ziadny logicky clen.\n"+exception);
+                
             }
         }
 
@@ -910,5 +913,154 @@ namespace Logic_Designer.verifikacia
         {
 
         }
+
+
+
+        //---------------------------------------------------------------------------------------------------
+        //Vizualizacia
+        //---------------------------------------------------------------------------------------------------
+        
+
+        public Graphics gpic1;
+        public SolidBrush brushpic1;
+        public Pen penpic1;
+        public Pen penFalse = new Pen(Color.Red, 1f);
+        public Pen penTrue = new Pen(Color.Green, 1f);
+
+        public static System.Windows.Forms.PictureBox pictureBox;
+
+        public verifikacia()
+        {
+            InitializeComponent();
+            
+            pictureBox1.AllowDrop = true;
+            this.DoubleBuffered = true;
+            this.SetStyle(ControlStyles.DoubleBuffer |
+          ControlStyles.UserPaint |
+          ControlStyles.AllPaintingInWmPaint
+          | ControlStyles.SupportsTransparentBackColor,
+          true);
+            this.UpdateStyles();
+
+            brushpic1 = new SolidBrush(Color.Blue);
+            penpic1 = new Pen(brushpic1);
+             
+            pictureBox = pictureBox1;
+        }
+
+        public void paintAll()
+        {
+            //pictureBox1.Invalidate(false);
+            //pictureBox1.Update();
+            pictureBox1_Paint(pictureBox1, new PaintEventArgs(pictureBox1.CreateGraphics(), new Rectangle(0, 0, pictureBox1.Width, pictureBox1.Height)));
+        }
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+                Graphics g = e.Graphics;
+
+                g.DrawEllipse(new Pen(Color.Red, 2f), 10, 10, 100, 100);
+
+                g.DrawRectangle(new Pen(Color.Red, 2f), 100, 100, 200, 200);
+
+                g.Dispose();
+
+                /*
+                brushpic1.Color = Color.Black;
+
+                foreach (Digi_graf_modul.Connection con in Digi_graf_modul.graf_modul.form.Connections)
+                {
+                    penpic1.Width = con.ConWidth;
+
+                    con.Start = new Point(con.StartNode.Left + con.StartPortPic.Left, con.StartNode.Top + con.StartPortPic.Top);
+                    con.End = new Point(con.EndNode.Left + con.EndPortPic.Left, con.EndNode.Top + con.EndPortPic.Top);
+
+                    con.RefreshPath();
+                    g.DrawPath(penpic1, con.Path);
+                    brushpic1.Color = Color.Black;
+                    if (con.Type == "ARC") g.FillPie(brushpic1, con.End.X - 20, con.End.Y - 20, 40, 40, con.startAngle, 45);
+                    brushpic1.Color = Color.Blue;
+                    foreach (Point pt in con.Points)
+                    {
+                        if (pt != con.Start && pt != con.End)
+                        {
+                            g.FillEllipse(brushpic1, pt.X - 4, pt.Y - 4, 8, 8);
+                        }
+                    }
+                
+                }
+                */
+        }
+
+
+        //Digi_graf_modul.NodeCtrl Node in Digi_graf_modul.graf_modul.form.Nodes
+        //Digi_graf_modul.Connection Con in Digi_graf_modul.graf_modul.form.Connections
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //paintAll();
+
+            /*
+            foreach (Digi_graf_modul.NodeCtrl Node in Digi_graf_modul.graf_modul.form.Nodes)
+            {
+                
+
+                
+                //Graphics g = e.Graphics;
+                System.Drawing.Bitmap pic = new System.Drawing.Bitmap(this.pictureBox.Image, pictureBox.Width, pictureBox.Height);
+                System.Drawing.Rectangle rect = new System.Drawing.Rectangle(10, 10, 200, 200);
+                Node.DrawToBitmap(pic, rect);
+
+                Graphics g = pictureBox.CreateGraphics();
+                SolidBrush b = new SolidBrush(Color.Black);
+                g.DrawString(Node.Text, new Font(Node.Font, FontStyle.Regular), b, new Point(50 / 2 - Node.Text.Length / 2 * 10, 50 / 2 - 7));
+                
+            }
+            //PaintMain();
+            */
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            loadConnections();
+            loadGates();
+
+            resolveCircuit();
+
+            Graphics g = pictureBox1.CreateGraphics();
+
+            foreach (Digi_graf_modul.NodeCtrl Node in Digi_graf_modul.graf_modul.form.Nodes)
+            {
+                pictureBox1.Controls.Add(Node);
+            }
+
+            foreach (Connection Con in Connections)
+            {
+                if(Con.Value == true)
+                {
+                    g.DrawLine(penTrue, Con.startP, Con.endP);
+                }
+                if (Con.Value == false)
+                {
+                    g.DrawLine(penFalse, Con.startP, Con.endP);
+                }
+            }
+
+            g.Dispose();
+            //Digi_graf_modul.graf_modul.form.verNodes();
+
+            Gates.Clear();
+            Connections.Clear();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            foreach (Digi_graf_modul.NodeCtrl Node in Digi_graf_modul.graf_modul.form.Nodes)
+            {
+                Digi_graf_modul.graf_modul.form.pictureBox.Controls.Add(Node);
+            }
+        }
+
+
     }
 }
