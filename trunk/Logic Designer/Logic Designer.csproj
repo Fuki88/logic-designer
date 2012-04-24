@@ -59,13 +59,22 @@
     <Compile Include="AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Blif.cs" />
+    <Compile Include="Blif1.cs" />
+    <Compile Include="Blif.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="CONNECTION.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNazov.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNazov.Designer.cs">
+      <DependentUpon>FrmNazov.cs</DependentUpon>
     </Compile>
     <Compile Include="graf_modul\Class1.cs" />
     <Compile Include="graf_modul\Connection.cs">
@@ -117,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNazov.resx">
+      <DependentUpon>FrmNazov.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="graf_modul\FmrInfo.resx">
       <DependentUpon>FmrInfo.cs</DependentUpon>

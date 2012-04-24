@@ -6,9 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Collections;
 
-namespace Digi_graf_modul
+namespace Logic_Designer
 {
     public partial class FrmNazov : Form
     {
@@ -17,7 +16,7 @@ namespace Digi_graf_modul
             InitializeComponent();
         }
 
-        private void lbl1_Click(object sender, EventArgs e)
+        private void FrmNazov_Load(object sender, EventArgs e)
         {
 
         }
@@ -27,15 +26,10 @@ namespace Digi_graf_modul
 
         }
 
-        private void btnNazov_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            graf_modul.form.ModelName = textBox1.Text;
+            Form1.SetModelName(textBox1.Text);
             this.Close();
-        }
-
-        private void FrmNazov_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
