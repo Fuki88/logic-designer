@@ -83,7 +83,7 @@ namespace Logic_Designer
                 //ulozit text ako plain text
                 if (textSaveFile.FilterIndex == 2)
                 {
-                    Blif bl = new Blif();
+                   Plugin1.Blif bl = new Plugin1.Blif();
                     MessageBox.Show("ukladam do blifka");
                     bl.svblf(textSaveFile.FileName);
                 }
@@ -110,7 +110,7 @@ namespace Logic_Designer
             {
                 if (textOpenFile.FilterIndex == 2)
                 {
-                    Blif bl = new Blif();
+                    Plugin1.Blif bl = new Plugin1.Blif();
                     MessageBox.Show("nacitavam z blifka");
                     bl.opblf(textOpenFile.FileName);
                 }
@@ -173,7 +173,11 @@ namespace Logic_Designer
 
         }
 
+        public static String Model_Name;
 
+        public static void SetModelName(string Nazov) {
+            Model_Name = Nazov;
+        }
 
         public static bool UlozUzly(string FileName)
         {
@@ -337,10 +341,15 @@ namespace Logic_Designer
 
         public static void CreateNode(int x, int y, int ID, string Name, string Type, string[] PortsIN, string PortsOUT){
             NODE_CTRL N = new NODE_CTRL();
-
-            foreach (string INn in PortsIN)
-                N.ConIN.Add(INn);
-            N.ConOut.Add(PortsOUT);
+            if (PortsIN != null)
+            {
+                foreach (string INn in PortsIN)
+                    N.ConIN.Add(INn);
+            }
+            if (PortsOUT != "")
+            {
+                N.ConOut.Add(PortsOUT);
+            }
             N.Text = Name;
             N.Type = Type;
             N.ID = ID;
@@ -403,17 +412,17 @@ namespace Logic_Designer
 
         }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+     private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedIndex == 1)
-            {
-                ParseVHDL parser = new ParseVHDL();
-                parser.Parse(this.numberedRichTextBox1.textRichTextBox1.Text);
-                parser.Draw();
+                   if (tabControl1.SelectedIndex == 1)
+               {
+                   ParseVHDL parser = new ParseVHDL();
+                   parser.Parse(this.numberedRichTextBox1.textRichTextBox1.Text);
+                   parser.Draw();
                 
-            }
+               }
         }
-
+        
         private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Help.ShowHelp(this, "help.chm");

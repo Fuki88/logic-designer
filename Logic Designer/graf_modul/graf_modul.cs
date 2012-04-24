@@ -2548,8 +2548,14 @@ namespace Digi_graf_modul
                         int p = 0;
                         int q = 0;
                         if (con.Name == conex.Name){
-                        con.StartNode.Text = conex.StartNode;
-                        con.EndNode.Text = conex.EndNode;
+                            if (con.StartNode.Text != null)
+                            {
+                                con.StartNode.Text = conex.StartNode;
+                            }
+                            if (con.EndNode.Text != null)
+                            {
+                                con.EndNode.Text = conex.EndNode;
+                            }
                             foreach(String n in con.StartNode.ConOut){
                                // MessageBox.Show("ConOut" + n);                         
                                 a++; 

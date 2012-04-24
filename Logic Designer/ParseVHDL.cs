@@ -276,6 +276,7 @@ namespace Logic_Designer
 //            foreach (Connection CON in Connections)
 //                Logic_Designer.Form1.SetCon(CON.Name, CON.StartNode.Name, CON.EndNode.Name);
             Form1.SetCon("test", "xNAND2_a", "xNAND2_b");
+            Form1.UlozUzly();
             Form1.UlozUzly("obvod_tmp.z5");
         }
     }
