@@ -203,7 +203,7 @@ namespace Logic_Designer
 
                 bF.Serialize(stream, _Nodes);
                 stream.Close();
-                MessageBox.Show("uzavrel som stream");
+                //MessageBox.Show("uzavrel som stream");
 
                 string FileConName = FileName + "c";
                 ArrayList _Cons = new ArrayList();
@@ -260,7 +260,7 @@ namespace Logic_Designer
                 }
 
                 stream.Close();
-                MessageBox.Show("uzavrel som stream");
+                //MessageBox.Show("uzavrel som stream");
                 stream = File.Open("obvod_tmp.z5c", FileMode.Create);
                 bF = new BinaryFormatter();
 

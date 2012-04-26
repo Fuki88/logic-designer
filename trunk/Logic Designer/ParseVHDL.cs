@@ -266,7 +266,7 @@ namespace Logic_Designer
                 //bla.CreateNode(i, i, i, suc.name, , suc.input_names, suc.output_names);
                 //Form1.SetNode(NOD.ID, NOD.ConIN, NOD.ConOut, NOD.Name, NOD.Type, NOD.Left, NOD.Top);
                 MessageBox.Show("Nazov: " + tmp.name + ", Typ: " + tmp.type + ", vstupy: " + (String)tmp.conIn[0] + " " + (String)tmp.conIn[1]);
-                Form1.SetNode(id++, tmp.conIn, tmp.conOut, tmp.name, tmp.type, i, i);
+                Form1.SetNode(id++, tmp.conIn, tmp.conOut, tmp.name, tmp.type.ToUpper(), i, i);
                 //String[] pole = { tmp.conIn[0].ToString(), tmp.conIn[1].ToString() };
                 //Form1.CreateNode(i, i, id++, tmp.name, tmp.type, pole, (String)tmp.conOut[0]);
                 i+= 20;                
@@ -275,7 +275,8 @@ namespace Logic_Designer
             Logic_Designer.Form1.ClearCon();
 //            foreach (Connection CON in Connections)
 //                Logic_Designer.Form1.SetCon(CON.Name, CON.StartNode.Name, CON.EndNode.Name);
-            Form1.SetCon("test", "xNAND2_a", "xNAND2_b");
+            Form1.SetCon("negA", "xNAND2_a", "xNAND2_c");
+            //Form1.MakeCons();
             Form1.UlozUzly();
             Form1.UlozUzly("obvod_tmp.z5");
         }
