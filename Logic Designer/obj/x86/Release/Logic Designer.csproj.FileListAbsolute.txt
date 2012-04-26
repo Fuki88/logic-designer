@@ -1,0 +1,18 @@
+D:\work\Logic Designer - parsing - Copy\Logic Designer\bin\Release\Logic Designer.exe
+D:\work\Logic Designer - parsing - Copy\Logic Designer\bin\Release\Logic Designer.pdb
+D:\work\Logic Designer - parsing - Copy\Logic Designer\bin\Release\TextEditor.exe
+D:\work\Logic Designer - parsing - Copy\Logic Designer\bin\Release\TextEditor.pdb
+D:\work\Logic Designer - parsing - Copy\Logic Designer\obj\x86\Release\ResolveAssemblyReference.cache
+D:\work\Logic Designer - parsing - Copy\Logic Designer\obj\x86\Release\Logic_Designer.AboutBox1.resources
+D:\work\Logic Designer - parsing - Copy\Logic Designer\obj\x86\Release\Logic_Designer.Form1.resources
+D:\work\Logic Designer - parsing - Copy\Logic Designer\obj\x86\Release\Digi_graf_modul.frmInfo.resources
+D:\work\Logic Designer - parsing - Copy\Logic Designer\obj\x86\Release\Digi_graf_modul.FrmNazov.resources
+D:\work\Logic Designer - parsing - Copy\Logic Designer\obj\x86\Release\Digi_graf_modul.graf_modul.resources
+D:\work\Logic Designer - parsing - Copy\Logic Designer\obj\x86\Release\Digi_graf_modul.NodeCtrl.resources
+D:\work\Logic Designer - parsing - Copy\Logic Designer\obj\x86\Release\Logic_Designer.NumberedRichTextBox.resources
+D:\work\Logic Designer - parsing - Copy\Logic Designer\obj\x86\Release\Logic_Designer.Properties.Resources.resources
+D:\work\Logic Designer - parsing - Copy\Logic Designer\obj\x86\Release\Logic_Designer.verifikacia.verifikacia.resources
+D:\work\Logic Designer - parsing - Copy\Logic Designer\obj\x86\Release\GenerateResource.read.1.tlog
+D:\work\Logic Designer - parsing - Copy\Logic Designer\obj\x86\Release\GenerateResource.write.1.tlog
+D:\work\Logic Designer - parsing - Copy\Logic Designer\obj\x86\Release\Logic Designer.exe
+D:\work\Logic Designer - parsing - Copy\Logic Designer\obj\x86\Release\Logic Designer.pdb

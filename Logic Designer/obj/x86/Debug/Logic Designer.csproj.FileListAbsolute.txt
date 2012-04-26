@@ -50,3 +50,4 @@ C:\skola\Timak\POODOVZDANI\Logic Designer\obj\x86\Debug\Logic_Designer.verifikac
 C:\skola\Timak\POODOVZDANI\Logic Designer\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\skola\Timak\POODOVZDANI\Logic Designer\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\skola\Timak\POODOVZDANI\Logic Designer\obj\x86\Debug\Logic_Designer.FrmNazov.resources
+D:\work\Logic Designer - parsing - Copy\Logic Designer\obj\x86\Debug\Logic_Designer.FrmNazov.resources
