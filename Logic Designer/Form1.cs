@@ -414,6 +414,16 @@ namespace Logic_Designer
 
      private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (tabControl1.SelectedIndex == 2)
+            {
+                verifikacia1.verifiakaciaSelected();
+            }
+            else
+            {
+                verifikacia1.verifiakaciaDeSelected();
+            }
+
+
                    if (tabControl1.SelectedIndex == 1)
                {
                    ParseVHDL parser = new ParseVHDL();
@@ -421,6 +431,7 @@ namespace Logic_Designer
                    parser.Draw();
                 
                }
+
         }
         
         private void helpToolStripMenuItem1_Click(object sender, EventArgs e)

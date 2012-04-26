@@ -613,7 +613,7 @@ namespace Logic_Designer.verifikacia
         {
             foreach (Digi_graf_modul.NodeCtrl Node in Digi_graf_modul.graf_modul.form.Nodes)
             {
-                if (Node.Type.StartsWith("IN"))
+                if (Node.Type.StartsWith("IN") && !Node.Type.StartsWith("INV"))
                 {
                     IN tmpGate = new IN(Node.ID);
                     tmpGate.OutConnection = Node.ConOut[0].ToString();
@@ -887,26 +887,29 @@ namespace Logic_Designer.verifikacia
         {      
             try 
             {
-                //najprv sa musia nacitat spojenia (pred hradlami)!!!
-                loadConnections();
-                loadGates();
-
                 if (startResolving() == true)
                 {
                     textBox1.Text = getTruthVector();
                 }
-
-                Gates.Clear();
-                Connections.Clear();
-
-                //tmpCon = (Digi_graf_modul.Connection)Digi_graf_modul.graf_modul.form.Connections[0];
-                //MessageBox.Show(tmpCon.StartNode.Type.ToString());
-                //textBox1.Text = TEST(Digi_graf_modul.graf_modul.form.active_gate);
             }
             catch (Exception exception)
             {
                 
             }
+        }
+
+        private void initVector()
+        {
+            //najprv sa musia nacitat spojenia (pred hradlami)!!!
+            loadConnections();
+            loadGates();
+        }
+
+        private void clearVector()
+        {
+            Gates.Clear();
+            Connections.Clear();
+            textBox1.Clear();
         }
 
         private void verifikacia_Load(object sender, EventArgs e)
@@ -919,8 +922,9 @@ namespace Logic_Designer.verifikacia
         //---------------------------------------------------------------------------------------------------
         //Vizualizacia
         //---------------------------------------------------------------------------------------------------
-        
 
+
+        private int selected = 0;
         public Graphics gpic1;
         public SolidBrush brushpic1;
         public Pen penpic1;
@@ -1036,6 +1040,7 @@ namespace Logic_Designer.verifikacia
             foreach (Digi_graf_modul.NodeCtrl Node in Digi_graf_modul.graf_modul.form.Nodes)
             {
                 pictureBox1.Controls.Add(Node);
+                Node.Enabled = false;
             }
         }
 
@@ -1044,6 +1049,7 @@ namespace Logic_Designer.verifikacia
             foreach (Digi_graf_modul.NodeCtrl Node in Digi_graf_modul.graf_modul.form.Nodes)
             {
                 Digi_graf_modul.graf_modul.form.pictureBox.Controls.Add(Node);
+                Node.Enabled = true;
             }
 
             Gates.Clear();
@@ -1056,24 +1062,10 @@ namespace Logic_Designer.verifikacia
             paintAll();
         }
 
-        //refresh
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            initViz();
-            refresh();
-        }
-
-        //send_back
-        private void button2_Click(object sender, EventArgs e)
-        {
-            cancelViz();
-            clearPaint();
-        }
-
         //otoci hodnotu v hradle IN, na ktore klniknem
         private void changeInVal(int x, int y)
         {
-            int c = 20;
+            int c = 10;
             IN tmp;
 
             foreach (Connection con in Connections)
@@ -1083,7 +1075,8 @@ namespace Logic_Designer.verifikacia
                     if (con.StartGateID == gate.ID && gate.type == "IN")
                     {
                         //MessageBox.Show("x=" + x + "\ny=" + y + "\n\nIn x=" + con.startP.X + "\n\nIn y=" + con.startP.Y);
-                        if (((x > con.startP.X - c && y > con.startP.Y - c) && (x < con.startP.X + c && y < con.startP.Y + c)))
+                        if (((x > con.startP.X - c && y > con.startP.Y - c) && (x < con.startP.X + c && y < con.startP.Y + c)) ||
+                            ((x > con.endP.X - c && y > con.endP.Y - c) && (x < con.endP.X + c && y < con.endP.Y + c)))
                         {
                             tmp = (IN)gate;
                             tmp.toggleOutPortValue();
@@ -1118,6 +1111,54 @@ namespace Logic_Designer.verifikacia
                     paintAll();
                     break;
             } 
+        }
+
+        private void pictureBox1_Resize(object sender, EventArgs e)
+        {
+            refresh();
+        }
+
+
+        //ked sa selectne tab s verifikaciou
+        public void verifiakaciaSelected()
+        {
+            //vektor
+            if (selected == 0)
+            {
+                initVector();
+            }
+            //vizualizacia
+            if (selected == 1)
+            {
+                initViz();
+                refresh();
+            }
+        }
+
+        //ked sa deselectne tab s verifikaciou
+        public void verifiakaciaDeSelected()
+        {
+            clearVector();
+            cancelViz();
+            clearPaint();
+        }
+
+        //zmena tabov v ramci verifikacie
+        public void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (selected == 0)
+            {
+                clearVector();
+                initViz();
+                refresh();
+            }
+            if (selected == 1)
+            {
+                cancelViz();
+                clearPaint();
+                initVector();
+            }
+            selected = tabControl1.SelectedIndex;
         }
     }
 }
