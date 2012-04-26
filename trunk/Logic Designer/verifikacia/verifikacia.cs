@@ -909,7 +909,6 @@ namespace Logic_Designer.verifikacia
         {
             Gates.Clear();
             Connections.Clear();
-            textBox1.Clear();
         }
 
         private void verifikacia_Load(object sender, EventArgs e)
@@ -1067,6 +1066,7 @@ namespace Logic_Designer.verifikacia
         {
             int c = 10;
             IN tmp;
+            bool found = false;
 
             foreach (Connection con in Connections)
             {
@@ -1074,14 +1074,25 @@ namespace Logic_Designer.verifikacia
                 {
                     if (con.StartGateID == gate.ID && gate.type == "IN")
                     {
-                        //MessageBox.Show("x=" + x + "\ny=" + y + "\n\nIn x=" + con.startP.X + "\n\nIn y=" + con.startP.Y);
+                        //MessageBox.Show("x=" + x + "\ny=" + y + "\n\nIn st x=" + con.startP.X + "\n\nIn st y=" + con.startP.Y + "\n\nIn end x=" + con.endP.X + "\n\nIn end y=" + con.endP.Y);
+
                         if (((x > con.startP.X - c && y > con.startP.Y - c) && (x < con.startP.X + c && y < con.startP.Y + c)) ||
                             ((x > con.endP.X - c && y > con.endP.Y - c) && (x < con.endP.X + c && y < con.endP.Y + c)))
                         {
                             tmp = (IN)gate;
                             tmp.toggleOutPortValue();
+                            found = true;
                         }
                     }
+                    if (found)
+                    {
+                        break;
+                    }
+                }
+
+                if (found)
+                {
+                    break;
                 }
             }
         }
@@ -1141,6 +1152,7 @@ namespace Logic_Designer.verifikacia
             clearVector();
             cancelViz();
             clearPaint();
+            textBox1.Clear();
         }
 
         //zmena tabov v ramci verifikacie
