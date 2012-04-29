@@ -3201,7 +3201,17 @@ namespace Digi_graf_modul
             //MainSurface1.Invalidate();
         }
 
+        public void SaveToCore() {
+            Logic_Designer.Form1.ClearNode();
+            foreach (NodeCtrl NOD in Nodes)
+                Logic_Designer.Form1.SetNode(NOD.ID, NOD.ConIN, NOD.ConOut, NOD.Name, NOD.Type, NOD.Left, NOD.Top);
 
+            Logic_Designer.Form1.ClearCon();
+            foreach (Connection CON in Connections)
+                Logic_Designer.Form1.SetCon(CON.Name, CON.StartNode.Name, CON.EndNode.Name);
+            Logic_Designer.Form1.UlozUzly("obvod_tmp.z5");
+        
+        }
 
         private void btn_Refresh_Click(object sender, EventArgs e)
         {

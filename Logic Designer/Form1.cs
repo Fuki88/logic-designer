@@ -80,6 +80,7 @@ namespace Logic_Designer
             if (textSaveFile.ShowDialog() == System.Windows.Forms.DialogResult.OK &&
                 textSaveFile.FileName != "")
             {
+                this.graf_modul1.SaveToCore();
                 //ulozit text ako plain text
                 if (textSaveFile.FilterIndex == 2)
                 {
@@ -103,7 +104,7 @@ namespace Logic_Designer
             textOpenFile.Multiselect = false;
             //textOpenFile.DefaultExt = "*.blif";
             textOpenFile.Filter = "VHDL|*.vhd;*.vhdl|Blif|*.blif|Kiss|*.kiss|PLA|*.pla|Verilog|*.v|All files|*.*";
-
+            
             //ked je subor otvoreny
             if (textOpenFile.ShowDialog() == System.Windows.Forms.DialogResult.OK &&
                 textOpenFile.FileName.Length > 0)
@@ -113,6 +114,8 @@ namespace Logic_Designer
                     Plugin1.Blif bl = new Plugin1.Blif();
                     MessageBox.Show("nacitavam z blifka");
                     bl.opblf(textOpenFile.FileName);
+                    this.graf_modul1.Cleanup();
+                    this.graf_modul1.NacitajUzly("obvod_tmp.z5");
                 }
                 //nacitat do rich text boxu subor v plain texte
                 this.numberedRichTextBox1.textRichTextBox1.LoadFile(textOpenFile.FileName, RichTextBoxStreamType.PlainText);
@@ -468,6 +471,15 @@ namespace Logic_Designer
                    ParseVHDL parser = new ParseVHDL();
                    parser.Parse(this.numberedRichTextBox1.textRichTextBox1.Text);
                    parser.Draw();
+                   try
+                   {
+                       this.graf_modul1.Cleanup();
+                       this.graf_modul1.NacitajUzly("obvod_tmp.z5");
+                   }
+                   catch
+                   {
+
+                   }
                 
                }
 

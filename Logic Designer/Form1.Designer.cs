@@ -50,6 +50,7 @@
             this.verificationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutLogicDesignerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -60,7 +61,6 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.verifikacia1 = new Logic_Designer.verifikacia.verifikacia();
             this.loadTextEditorModule = new System.Windows.Forms.OpenFileDialog();
-            this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -255,6 +255,14 @@
             this.aboutLogicDesignerToolStripMenuItem.Text = "About Logic Designer..";
             this.aboutLogicDesignerToolStripMenuItem.Click += new System.EventHandler(this.aboutLogicDesignerToolStripMenuItem_Click);
             // 
+            // helpToolStripMenuItem1
+            // 
+            this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
+            this.helpToolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(194, 22);
+            this.helpToolStripMenuItem1.Text = "Help";
+            this.helpToolStripMenuItem1.Click += new System.EventHandler(this.helpToolStripMenuItem1_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -320,7 +328,7 @@
             this.graf_modul1.ModelName = "";
             this.graf_modul1.ModelType = "Logic";
             this.graf_modul1.Name = "graf_modul1";
-            this.graf_modul1.Size = new System.Drawing.Size(960, 561);
+            this.graf_modul1.Size = new System.Drawing.Size(886, 443);
             this.graf_modul1.StateFirst = 0;
             this.graf_modul1.StateSecond = 0;
             this.graf_modul1.TabIndex = 1;
@@ -352,14 +360,6 @@
             this.loadTextEditorModule.FileName = "loadTextEditorModule";
             this.loadTextEditorModule.Filter = "Logic Designer Text Editor Modules|*.dll|All files|*.*";
             this.loadTextEditorModule.Title = "Choose Text Module";
-            // 
-            // helpToolStripMenuItem1
-            // 
-            this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(194, 22);
-            this.helpToolStripMenuItem1.Text = "Help";
-            this.helpToolStripMenuItem1.Click += new System.EventHandler(this.helpToolStripMenuItem1_Click);
             // 
             // Form1
             // 
