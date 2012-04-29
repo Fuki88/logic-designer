@@ -270,7 +270,7 @@ namespace Logic_Designer
                     _con.Name = con.Name;
                     _con.StartNode = con.StartNode_Text;
                     _con.EndNode = con.EndNode_Text;
-                    MessageBox.Show(con.StartNode_Text); MessageBox.Show(con.EndNode_Text);
+                    //MessageBox.Show(con.StartNode_Text); MessageBox.Show(con.EndNode_Text);
                     bF.Serialize(stream, _con);
                 }
                 stream.Close();
@@ -396,11 +396,50 @@ namespace Logic_Designer
 
             }
 
-            foreach (NODE_CTRL abc in NODES)
-                MessageBox.Show(abc.Type);
-            foreach (CONNECTION con in CONNECTIONS)
-                MessageBox.Show(con.Name);
+            //foreach (NODE_CTRL abc in NODES) MessageBox.Show(abc.Type);
+            //foreach (CONNECTION con in CONNECTIONS) MessageBox.Show(con.Name);
         }
+
+        public static void MakePins()
+        { //vytvori vstupne piny
+            ArrayList pins = new ArrayList();
+            int flag = 0;
+
+            foreach (NODE_CTRL node in NODES)
+            {
+
+                foreach (string cI in node.ConIN)
+                {
+                    foreach (NODE_CTRL nn in NODES)
+                    {
+                        foreach (string cO in nn.ConOut)
+                        {
+                            if (cI == cO) flag = 1; // ak sa nasla dvojica portov ktore sa daju prepojit
+//                            else nn.Left += 100; // posun doprava
+                        }
+
+                    }
+                    if (flag == 0) { // kedze sa nenasla dvojica portov na prepojenie
+                        ArrayList outs = new ArrayList();
+                        ArrayList ins = new ArrayList();
+                        outs.Add(cI);
+                        //Form1.SetNode(CONNECTIONS.Count+1, ins, outs, cI, "IN", 20, node.Top);
+                        NODE_CTRL N = new NODE_CTRL();
+                        N.ConIN = ins;
+                        N.ConOut = outs;
+                        N.Text = cI;
+                        N.Type = "IN";
+                        N.ID = CONNECTIONS.Count+1;
+                        N.Left = 20;
+                        N.Top = node.Top;
+                        pins.Add(N);
+                    }
+                    flag = 0;
+                }
+            }
+            NODES.AddRange(pins);
+        }
+
 
         private void verifikacia1_Load(object sender, EventArgs e)
         {

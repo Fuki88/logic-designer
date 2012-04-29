@@ -19,6 +19,7 @@ namespace Logic_Designer
         public string Type = null;
         public int Left;
         public int Top;
+        public int Level = 0;
 
         private int _ID = -1;
 

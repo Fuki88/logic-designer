@@ -257,7 +257,7 @@ namespace Logic_Designer
         public void Draw()
         {
             //PluginInterface.IPluginHost bla;
-            int i = 20;
+            int i = 50;
             int id = 0;
 
             Form1.ClearNode();
@@ -265,20 +265,25 @@ namespace Logic_Designer
             {
                 //bla.CreateNode(i, i, i, suc.name, , suc.input_names, suc.output_names);
                 //Form1.SetNode(NOD.ID, NOD.ConIN, NOD.ConOut, NOD.Name, NOD.Type, NOD.Left, NOD.Top);
-                MessageBox.Show("Nazov: " + tmp.name + ", Typ: " + tmp.type + ", vstupy: " + (String)tmp.conIn[0] + " " + (String)tmp.conIn[1]);
-                Form1.SetNode(id++, tmp.conIn, tmp.conOut, tmp.name, tmp.type.ToUpper(), i, i);
+                //MessageBox.Show("Nazov: " + tmp.name + ", Typ: " + tmp.type + ", vstupy: " + (String)tmp.conIn[0] + " " + (String)tmp.conIn[1]);
+                Form1.SetNode(id++, tmp.conIn, tmp.conOut, tmp.name, tmp.type.ToUpper(), 40, i);
                 //String[] pole = { tmp.conIn[0].ToString(), tmp.conIn[1].ToString() };
                 //Form1.CreateNode(i, i, id++, tmp.name, tmp.type, pole, (String)tmp.conOut[0]);
-                i+= 20;                
+                i+= 85;                
             }
+            //ArrayList outs = new ArrayList();
+            //ArrayList ins = new ArrayList();
+            //outs.Add("b");
+            //Form1.SetNode(circuit_nodes.Count + 1, ins, outs, "a", "IN", 20, 150);
 
             Logic_Designer.Form1.ClearCon();
 //            foreach (Connection CON in Connections)
 //                Logic_Designer.Form1.SetCon(CON.Name, CON.StartNode.Name, CON.EndNode.Name);
-            Form1.SetCon("negA", "xNAND2_a", "xNAND2_c");
-            //Form1.MakeCons();
+            //Form1.SetCon("negA", "xNAND2_a", "xNAND2_c");
+            Form1.MakePins();
+            Form1.MakeCons();
             Form1.UlozUzly();
-            Form1.UlozUzly("obvod_tmp.z5");
+            if (Form1.UlozUzly("obvod_tmp.z5")) MessageBox.Show("Obvod bol úspešne načítaný z textového editora. \nKliknite na refresh.");
         }
     }
 }
