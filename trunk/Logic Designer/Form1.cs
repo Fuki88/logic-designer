@@ -408,6 +408,7 @@ namespace Logic_Designer
         { //vytvori vstupne piny
             ArrayList pins = new ArrayList();
             int flag = 0;
+            int i = 0;
 
             foreach (NODE_CTRL node in NODES)
             {
@@ -421,8 +422,9 @@ namespace Logic_Designer
                             if (cI == cO)
                             {
                                 flag = 1; // ak sa nasla dvojica portov ktore sa daju prepojit
-                                //if (node.Level <= nn.Level) MessageBox.Show("Node " + node.Text + ": " + node.Level.ToString() + "\nnn " + nn.Text + ": " + nn.Level.ToString());//node.Level = nn.Level + 1;
+                                if (node.Level <= nn.Level) node.Level = nn.Level + 1;
                                 
+                                //MessageBox.Show("Node " + node.Text + ": " + node.Level.ToString() + "\nnn " + nn.Text + ": " + nn.Level.ToString());
                             }
                             //                            else nn.Left += 100; // posun doprava
                         }
@@ -432,7 +434,6 @@ namespace Logic_Designer
                         ArrayList outs = new ArrayList();
                         ArrayList ins = new ArrayList();
                         outs.Add(cI);
-                        //Form1.SetNode(CONNECTIONS.Count+1, ins, outs, cI, "IN", 20, node.Top);
                         NODE_CTRL N = new NODE_CTRL();
                         N.ConIN = ins;
                         N.ConOut = outs;
@@ -440,12 +441,44 @@ namespace Logic_Designer
                         N.Type = "IN";
                         N.ID = CONNECTIONS.Count+1;
                         N.Left = 20;
-                        N.Top = node.Top;
+                        N.Top = node.Top + i * 50;
                         pins.Add(N);
                     }
                     flag = 0;
                 }
             }
+
+            foreach (NODE_CTRL node in NODES)
+            {
+                foreach (string cO in node.ConOut)
+                {
+                    foreach (NODE_CTRL nn in NODES)
+                    {
+                        foreach (string cI in nn.ConIN)
+                        {
+                            if (cI == cO) flag = 1;
+                            nn.Left = 50 + (nn.Level * 100);
+                        }
+                    }
+                    if (flag == 0)
+                    { // kedze sa nenasla dvojica portov na prepojenie
+                        ArrayList outs = new ArrayList();
+                        ArrayList ins = new ArrayList();
+                        ins.Add(cO);
+                        NODE_CTRL N = new NODE_CTRL();
+                        N.ConIN = ins;
+                        N.ConOut = outs;
+                        N.Text = cO;
+                        N.Type = "OUT";
+                        N.ID = CONNECTIONS.Count + 1;
+                        N.Left = 150 + (node.Level * 100);
+                        N.Top = node.Top + 40;
+                        pins.Add(N);
+                    }
+                    flag = 0;
+                }
+            }
+            
             NODES.AddRange(pins);
         }
 
