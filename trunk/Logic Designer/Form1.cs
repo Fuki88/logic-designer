@@ -30,6 +30,7 @@ namespace Logic_Designer
 
         public static ArrayList CONNECTIONS = new ArrayList();
         public static ArrayList NODES = new ArrayList();
+        public static bool erroroccured = false;
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
