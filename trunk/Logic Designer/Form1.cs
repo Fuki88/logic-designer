@@ -410,15 +410,20 @@ namespace Logic_Designer
 
             foreach (NODE_CTRL node in NODES)
             {
-
+                //MessageBox.Show(node.Text + " je " + node.Level.ToString());
                 foreach (string cI in node.ConIN)
                 {
                     foreach (NODE_CTRL nn in NODES)
                     {
                         foreach (string cO in nn.ConOut)
                         {
-                            if (cI == cO) flag = 1; // ak sa nasla dvojica portov ktore sa daju prepojit
-//                            else nn.Left += 100; // posun doprava
+                            if (cI == cO)
+                            {
+                                flag = 1; // ak sa nasla dvojica portov ktore sa daju prepojit
+                                //if (node.Level <= nn.Level) MessageBox.Show("Node " + node.Text + ": " + node.Level.ToString() + "\nnn " + nn.Text + ": " + nn.Level.ToString());//node.Level = nn.Level + 1;
+                                
+                            }
+                            //                            else nn.Left += 100; // posun doprava
                         }
 
                     }
@@ -446,7 +451,7 @@ namespace Logic_Designer
 
         private void verifikacia1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -465,8 +470,7 @@ namespace Logic_Designer
                 verifikacia1.verifiakaciaDeSelected();
             }
 
-
-                   if (tabControl1.SelectedIndex == 1)
+            if (tabControl1.SelectedIndex == 1 && NumberedRichTextBox.textComboBox1.SelectedItem.ToString() == "vhdl")
                {
                    ParseVHDL parser = new ParseVHDL();
                    parser.Parse(this.numberedRichTextBox1.textRichTextBox1.Text);
