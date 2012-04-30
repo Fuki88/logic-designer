@@ -195,7 +195,7 @@
         private System.Windows.Forms.Label textLabelStatus;
         private System.Windows.Forms.Label textHighlightDown;
         private System.Windows.Forms.Label textHighlightUp;
-        private static System.Windows.Forms.ComboBox textComboBox1;
+        public static System.Windows.Forms.ComboBox textComboBox1;
 
         //public aby som mohol pristupovat k rich text boxu z form1.cs
     }
