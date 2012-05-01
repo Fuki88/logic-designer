@@ -69,3 +69,21 @@ C:\skola\Timak\Nedela_vecer\Logic Designer\obj\x86\Debug\Logic_Designer.Properti
 C:\skola\Timak\Nedela_vecer\Logic Designer\obj\x86\Debug\Logic_Designer.verifikacia.verifikacia.resources
 C:\skola\Timak\Nedela_vecer\Logic Designer\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\skola\Timak\Nedela_vecer\Logic Designer\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Stevko\FIIT\FIIT_LETNY_2012\Timovy projekt\Logic Designer_SVN\Logic Designer\obj\x86\Debug\Logic Designer.exe
+C:\Stevko\FIIT\FIIT_LETNY_2012\Timovy projekt\Logic Designer_SVN\Logic Designer\obj\x86\Debug\Logic Designer.pdb
+C:\Stevko\FIIT\FIIT_LETNY_2012\Timovy projekt\Logic Designer_SVN\Logic Designer\bin\Debug\Logic Designer.exe
+C:\Stevko\FIIT\FIIT_LETNY_2012\Timovy projekt\Logic Designer_SVN\Logic Designer\bin\Debug\Logic Designer.pdb
+C:\Stevko\FIIT\FIIT_LETNY_2012\Timovy projekt\Logic Designer_SVN\Logic Designer\bin\Debug\TextEditor.pdb
+C:\Stevko\FIIT\FIIT_LETNY_2012\Timovy projekt\Logic Designer_SVN\Logic Designer\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Stevko\FIIT\FIIT_LETNY_2012\Timovy projekt\Logic Designer_SVN\Logic Designer\obj\x86\Debug\Logic_Designer.AboutBox1.resources
+C:\Stevko\FIIT\FIIT_LETNY_2012\Timovy projekt\Logic Designer_SVN\Logic Designer\obj\x86\Debug\Logic_Designer.Form1.resources
+C:\Stevko\FIIT\FIIT_LETNY_2012\Timovy projekt\Logic Designer_SVN\Logic Designer\obj\x86\Debug\Logic_Designer.FrmNazov.resources
+C:\Stevko\FIIT\FIIT_LETNY_2012\Timovy projekt\Logic Designer_SVN\Logic Designer\obj\x86\Debug\Digi_graf_modul.frmInfo.resources
+C:\Stevko\FIIT\FIIT_LETNY_2012\Timovy projekt\Logic Designer_SVN\Logic Designer\obj\x86\Debug\Digi_graf_modul.FrmNazov.resources
+C:\Stevko\FIIT\FIIT_LETNY_2012\Timovy projekt\Logic Designer_SVN\Logic Designer\obj\x86\Debug\Digi_graf_modul.graf_modul.resources
+C:\Stevko\FIIT\FIIT_LETNY_2012\Timovy projekt\Logic Designer_SVN\Logic Designer\obj\x86\Debug\Digi_graf_modul.NodeCtrl.resources
+C:\Stevko\FIIT\FIIT_LETNY_2012\Timovy projekt\Logic Designer_SVN\Logic Designer\obj\x86\Debug\Logic_Designer.NumberedRichTextBox.resources
+C:\Stevko\FIIT\FIIT_LETNY_2012\Timovy projekt\Logic Designer_SVN\Logic Designer\obj\x86\Debug\Logic_Designer.Properties.Resources.resources
+C:\Stevko\FIIT\FIIT_LETNY_2012\Timovy projekt\Logic Designer_SVN\Logic Designer\obj\x86\Debug\Logic_Designer.verifikacia.verifikacia.resources
+C:\Stevko\FIIT\FIIT_LETNY_2012\Timovy projekt\Logic Designer_SVN\Logic Designer\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Stevko\FIIT\FIIT_LETNY_2012\Timovy projekt\Logic Designer_SVN\Logic Designer\obj\x86\Debug\GenerateResource.write.1.tlog
