@@ -528,5 +528,14 @@ namespace Logic_Designer
             Help.ShowHelp(this, "help.chm");
         }
 
+     
+
+        private void conversionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("sis_bds.exe");
+           
+        }
+
+
     }
 }
