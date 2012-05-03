@@ -613,6 +613,7 @@ namespace Logic_Designer.verifikacia
         {
             foreach (Digi_graf_modul.NodeCtrl Node in Digi_graf_modul.graf_modul.form.Nodes)
             {
+                //MessageBox.Show("ID= " + Node.ID.ToString() + "\n name: " + Node.Name.ToString());
                 if (Node.Type.StartsWith("IN") && !Node.Type.StartsWith("INV"))
                 {
                     IN tmpGate = new IN(Node.ID);

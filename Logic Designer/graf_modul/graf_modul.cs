@@ -2511,10 +2511,10 @@ namespace Digi_graf_modul
                     node.ConOut = nodex.ConOut;
                     node.Text = nodex.Name;
                     node.Type = nodex.Type;
-                    node.ID = nodex.id;
+                    ID++;
+                    node.ID = ID;
                     node.Left = nodex.X;
                     node.Top = nodex.Y;
-                    ID = nodex.id;
                     foreach (Gate g in Gates)
                     {
                      if (g.name == node.Type)
