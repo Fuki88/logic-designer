@@ -2649,7 +2649,7 @@ namespace Digi_graf_modul
         {
             if (ModelType == "Logic")
             {
-                string filename = "obvod_tmp.z5";
+                string filename = "blif_obvod_tmp.z5";
 
                 PluginInterface.SavedNode uzol = new PluginInterface.SavedNode();
                 Stream stream = null;
@@ -2967,6 +2967,15 @@ namespace Digi_graf_modul
 
         private void toolInfo_Click(object sender, EventArgs e)
         {
+            Logic_Designer.Form1.ClearNode();
+            foreach (NodeCtrl NOD in Nodes)
+                Logic_Designer.Form1.SetNode(NOD.ID, NOD.ConIN, NOD.ConOut, NOD.Name, NOD.Type, NOD.Left, NOD.Top);
+            // Logic_Designer.Form1.MakeCons();
+            Logic_Designer.Form1.ClearCon();
+            foreach (Connection CON in Connections)
+                Logic_Designer.Form1.SetCon(CON.Name, CON.StartNode.Name, CON.EndNode.Name);
+            //Logic_Designer.Form1.UlozUzly("obvod_tmp.z5");
+            Logic_Designer.Form1.UlozUzly();
             frmInfo info = new frmInfo();
             info.Show();
         }
