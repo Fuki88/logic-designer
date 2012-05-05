@@ -609,7 +609,7 @@ namespace Digi_graf_modul
                 foreach (Connection con in Connections)
                 {
                     penpic1.Width = 20;
-                    if (con.Path.IsOutlineVisible(e.X, e.Y, penpic1))
+                    if (con.Path.IsOutlineVisible(e.X+35, e.Y+45, penpic1))
                     {
                         conx = con;
                         break;
@@ -1415,13 +1415,15 @@ namespace Digi_graf_modul
                 foreach (Connection con in Connections)
                 {
                     penpic1.Width = 20;
-                    if (con.Path.IsOutlineVisible(x, y, penpic1))
+                    if (con.Path.IsOutlineVisible(x+35, y+45, penpic1))
                     {
                         //nastavenie informacii o danom spojeni v grupe dole (info)
                         lbl_Zaciatok.Text = con.StartNode.Text;
                         lbl_Koniec.Text = con.EndNode.Text;
                         lbl_Nazov.Text = "Spojenie";
-
+                        groupCon.BringToFront();
+                        groupNode.Visible = false;
+                        groupPort.Visible = false;
                         groupCon.Visible = true;
                         //MessageBox.Show(con.Name + " vnutri");
                         //toolTipMain.Dispose();
@@ -1474,8 +1476,8 @@ namespace Digi_graf_modul
                 }
                 SetCursor();
                 groupCon.Visible = false;
-                //groupNode.Visible = false;
-                //groupPort.Visible = false;
+                groupNode.Visible = false;
+                groupPort.Visible = false;
             }
             catch
             {
@@ -1486,19 +1488,26 @@ namespace Digi_graf_modul
 
         public void setGroupNode(string Name, int numIn, int numOut, string Type)
         { //zobrazenie v gruptexte dole pri pohybe mysou nad nodom
-           // lbl_typ.Text = Type;
-           // lbl_Nazov.Text = Name;
-           // lbl_Zaciatok.Text = numIn.ToString();
-           // lbl_Koniec.Text = numOut.ToString();
-            //groupNode.Visible = true;
+            lbl_N_Typ.Text = Type;
+            lbl_N_Nazov.Text = Name;
+            lbl_N_NI.Text = numIn.ToString();
+            lbl_N_NO.Text = numOut.ToString();
+            groupNode.BringToFront();
+            groupCon.Visible = false;
+            groupPort.Visible = false;
+            groupNode.Visible = true;
         }
 
         public void setGroupPort(string Name, int numCons)
         { //zobrazenie v gruptexte dole pri pohybe mysou nad portom
 
-            //lblNamePort.Text = Name;
-            //lblPortCons.Text = numCons.ToString();
-            //groupPort.Visible = true;
+            lbl_P_Nazov.Text = Name;
+            lbl_P_NC.Text = numCons.ToString();
+            lbl_P_Typ.Text = "prepojenie";
+            groupPort.BringToFront();
+            groupCon.Visible = false;
+            groupNode.Visible = false;
+            groupPort.Visible = true;
         }
 
         private void node_MouseUp(object sender, MouseEventArgs e)
@@ -1917,7 +1926,7 @@ namespace Digi_graf_modul
                 foreach (Connection con in Connections)
                 {
                     penpic1.Width = 20;
-                    if (con.Path.IsOutlineVisible(x, y, penpic1))
+                    if (con.Path.IsOutlineVisible(x+35, y+45, penpic1))
                     {
                         if (((MouseEventArgs)e).Button == MouseButtons.Right)
                         {
@@ -2164,7 +2173,7 @@ namespace Digi_graf_modul
             foreach (Connection con in Connections)
             {
                 penpic1.Width = 20;
-                if (con.Path.IsOutlineVisible(x, y, penpic1)) {
+                if (con.Path.IsOutlineVisible(x+35, y+45, penpic1)) {
                     //MessageBox.Show(con.Name + " vnutri");
                     //toolTipMain.Dispose();
                     tip = new ToolTip();
@@ -2305,7 +2314,7 @@ namespace Digi_graf_modul
             foreach (Connection con in Connections)
             {
                 penpic1.Width = 20;
-                if (con.Path.IsOutlineVisible(x, y, penpic1))
+                if (con.Path.IsOutlineVisible(x+35, y+45, penpic1))
                 {
                     //MessageBox.Show(con.Name + " vnutri");
                     //toolTipMain.Dispose();

@@ -71,6 +71,23 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btn_Refresh = new System.Windows.Forms.ToolStripButton();
             this.btn_Send_To_Core = new System.Windows.Forms.ToolStripButton();
+            this.groupNode = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lbl_N_Typ = new System.Windows.Forms.Label();
+            this.lbl_N_Nazov = new System.Windows.Forms.Label();
+            this.lbl_N_NI = new System.Windows.Forms.Label();
+            this.lbl_N_NO = new System.Windows.Forms.Label();
+            this.Podrobnosti = new System.Windows.Forms.GroupBox();
+            this.groupPort = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lbl_P_Typ = new System.Windows.Forms.Label();
+            this.lbl_P_Nazov = new System.Windows.Forms.Label();
+            this.lbl_P_NC = new System.Windows.Forms.Label();
             this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.toolStrip3.SuspendLayout();
@@ -94,6 +111,9 @@
             this.toolStripContainer2.BottomToolStripPanel.SuspendLayout();
             this.toolStripContainer2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.groupNode.SuspendLayout();
+            this.Podrobnosti.SuspendLayout();
+            this.groupPort.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripContainer1
@@ -353,6 +373,7 @@
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.Podrobnosti);
             this.splitContainer2.Panel2.Controls.Add(this.groupCon);
             this.splitContainer2.Size = new System.Drawing.Size(654, 127);
             this.splitContainer2.SplitterDistance = 320;
@@ -384,12 +405,12 @@
             this.groupCon.Controls.Add(this.lbl_Zaciatok);
             this.groupCon.Controls.Add(this.lbl_Nazov);
             this.groupCon.Controls.Add(this.lbl_typ);
-            this.groupCon.Location = new System.Drawing.Point(3, 3);
+            this.groupCon.Location = new System.Drawing.Point(4, 9);
             this.groupCon.Name = "groupCon";
-            this.groupCon.Size = new System.Drawing.Size(324, 121);
+            this.groupCon.Size = new System.Drawing.Size(312, 112);
             this.groupCon.TabIndex = 0;
             this.groupCon.TabStop = false;
-            this.groupCon.Text = "Podrobnosti";
+            this.groupCon.Text = "Connections";
             this.groupCon.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // label6
@@ -597,6 +618,183 @@
             this.btn_Send_To_Core.Text = "Save to core";
             this.btn_Send_To_Core.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
+            // groupNode
+            // 
+            this.groupNode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupNode.Controls.Add(this.lbl_N_NO);
+            this.groupNode.Controls.Add(this.lbl_N_NI);
+            this.groupNode.Controls.Add(this.lbl_N_Nazov);
+            this.groupNode.Controls.Add(this.lbl_N_Typ);
+            this.groupNode.Controls.Add(this.label10);
+            this.groupNode.Controls.Add(this.label9);
+            this.groupNode.Controls.Add(this.label8);
+            this.groupNode.Controls.Add(this.label7);
+            this.groupNode.Location = new System.Drawing.Point(4, 9);
+            this.groupNode.Name = "groupNode";
+            this.groupNode.Size = new System.Drawing.Size(312, 112);
+            this.groupNode.TabIndex = 0;
+            this.groupNode.TabStop = false;
+            this.groupNode.Text = "Nodes";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(45, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(25, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Typ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(45, 44);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(38, 13);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Názov";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(45, 69);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(76, 13);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Počet vstupov";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(45, 94);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(81, 13);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Počet výstupov";
+            // 
+            // lbl_N_Typ
+            // 
+            this.lbl_N_Typ.AutoSize = true;
+            this.lbl_N_Typ.Location = new System.Drawing.Point(160, 16);
+            this.lbl_N_Typ.Name = "lbl_N_Typ";
+            this.lbl_N_Typ.Size = new System.Drawing.Size(27, 13);
+            this.lbl_N_Typ.TabIndex = 4;
+            this.lbl_N_Typ.Text = "N/A";
+            // 
+            // lbl_N_Nazov
+            // 
+            this.lbl_N_Nazov.AutoSize = true;
+            this.lbl_N_Nazov.Location = new System.Drawing.Point(160, 44);
+            this.lbl_N_Nazov.Name = "lbl_N_Nazov";
+            this.lbl_N_Nazov.Size = new System.Drawing.Size(27, 13);
+            this.lbl_N_Nazov.TabIndex = 5;
+            this.lbl_N_Nazov.Text = "N/A";
+            // 
+            // lbl_N_NI
+            // 
+            this.lbl_N_NI.AutoSize = true;
+            this.lbl_N_NI.Location = new System.Drawing.Point(166, 69);
+            this.lbl_N_NI.Name = "lbl_N_NI";
+            this.lbl_N_NI.Size = new System.Drawing.Size(13, 13);
+            this.lbl_N_NI.TabIndex = 6;
+            this.lbl_N_NI.Text = "0";
+            // 
+            // lbl_N_NO
+            // 
+            this.lbl_N_NO.AutoSize = true;
+            this.lbl_N_NO.Location = new System.Drawing.Point(166, 93);
+            this.lbl_N_NO.Name = "lbl_N_NO";
+            this.lbl_N_NO.Size = new System.Drawing.Size(13, 13);
+            this.lbl_N_NO.TabIndex = 7;
+            this.lbl_N_NO.Text = "0";
+            // 
+            // Podrobnosti
+            // 
+            this.Podrobnosti.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.Podrobnosti.Controls.Add(this.groupPort);
+            this.Podrobnosti.Controls.Add(this.groupNode);
+            this.Podrobnosti.Location = new System.Drawing.Point(-1, -7);
+            this.Podrobnosti.Name = "Podrobnosti";
+            this.Podrobnosti.Size = new System.Drawing.Size(335, 134);
+            this.Podrobnosti.TabIndex = 8;
+            this.Podrobnosti.TabStop = false;
+            // 
+            // groupPort
+            // 
+            this.groupPort.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupPort.Controls.Add(this.lbl_P_NC);
+            this.groupPort.Controls.Add(this.lbl_P_Nazov);
+            this.groupPort.Controls.Add(this.lbl_P_Typ);
+            this.groupPort.Controls.Add(this.label13);
+            this.groupPort.Controls.Add(this.label12);
+            this.groupPort.Controls.Add(this.label11);
+            this.groupPort.Location = new System.Drawing.Point(4, 9);
+            this.groupPort.Name = "groupPort";
+            this.groupPort.Size = new System.Drawing.Size(312, 112);
+            this.groupPort.TabIndex = 8;
+            this.groupPort.TabStop = false;
+            this.groupPort.Text = "Port";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(71, 23);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(25, 13);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Typ";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(74, 53);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(38, 13);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Názov";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(74, 86);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(73, 13);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "Počet spojení";
+            // 
+            // lbl_P_Typ
+            // 
+            this.lbl_P_Typ.AutoSize = true;
+            this.lbl_P_Typ.Location = new System.Drawing.Point(197, 23);
+            this.lbl_P_Typ.Name = "lbl_P_Typ";
+            this.lbl_P_Typ.Size = new System.Drawing.Size(27, 13);
+            this.lbl_P_Typ.TabIndex = 3;
+            this.lbl_P_Typ.Text = "N/A";
+            // 
+            // lbl_P_Nazov
+            // 
+            this.lbl_P_Nazov.AutoSize = true;
+            this.lbl_P_Nazov.Location = new System.Drawing.Point(197, 53);
+            this.lbl_P_Nazov.Name = "lbl_P_Nazov";
+            this.lbl_P_Nazov.Size = new System.Drawing.Size(27, 13);
+            this.lbl_P_Nazov.TabIndex = 4;
+            this.lbl_P_Nazov.Text = "N/A";
+            // 
+            // lbl_P_NC
+            // 
+            this.lbl_P_NC.AutoSize = true;
+            this.lbl_P_NC.Location = new System.Drawing.Point(200, 85);
+            this.lbl_P_NC.Name = "lbl_P_NC";
+            this.lbl_P_NC.Size = new System.Drawing.Size(13, 13);
+            this.lbl_P_NC.TabIndex = 5;
+            this.lbl_P_NC.Text = "0";
+            // 
             // graf_modul
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -642,6 +840,11 @@
             this.toolStripContainer2.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.groupNode.ResumeLayout(false);
+            this.groupNode.PerformLayout();
+            this.Podrobnosti.ResumeLayout(false);
+            this.groupPort.ResumeLayout(false);
+            this.groupPort.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -689,6 +892,23 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.GroupBox Podrobnosti;
+        private System.Windows.Forms.GroupBox groupNode;
+        private System.Windows.Forms.Label lbl_N_NO;
+        private System.Windows.Forms.Label lbl_N_NI;
+        private System.Windows.Forms.Label lbl_N_Nazov;
+        private System.Windows.Forms.Label lbl_N_Typ;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.GroupBox groupPort;
+        private System.Windows.Forms.Label lbl_P_NC;
+        private System.Windows.Forms.Label lbl_P_Nazov;
+        private System.Windows.Forms.Label lbl_P_Typ;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
 
 
     }
