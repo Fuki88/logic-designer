@@ -131,7 +131,7 @@ namespace Logic_Designer
             if (match >= 0 && match < langSyntax.Count)
             {
                 language = langSyntax[match].language;
-
+                textComboBox1.SelectedIndex = match + 1; // magic, dont touch! Nastavi ComboBox kde sa vybera jazyk na zvyraznenie na potrebnu hodnotu
                 //ked sa zmenil jazyk tak je nutne zmenit regexi (syntax) 
                 initRegex();
             }

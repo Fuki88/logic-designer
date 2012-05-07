@@ -409,6 +409,7 @@ namespace Logic_Designer
             ArrayList pins = new ArrayList();
             int flag = 0;
             int i = 0;
+            int id = 0;
 
             foreach (NODE_CTRL node in NODES)
             {
@@ -439,7 +440,8 @@ namespace Logic_Designer
                         N.ConOut = outs;
                         N.Text = cI;
                         N.Type = "IN";
-                        N.ID = CONNECTIONS.Count+1;
+                        //N.ID = CONNECTIONS.Count+1;
+                        N.ID = NODES.Count + id++;
                         N.Left = 20;
                         N.Top = node.Top + i * 50;
                         pins.Add(N);
@@ -470,7 +472,8 @@ namespace Logic_Designer
                         N.ConOut = outs;
                         N.Text = cO;
                         N.Type = "OUT";
-                        N.ID = CONNECTIONS.Count + 1;
+                        //N.ID = CONNECTIONS.Count + 1;
+                        N.ID = NODES.Count + id++;
                         N.Left = 150 + (node.Level * 100);
                         N.Top = node.Top + 40;
                         pins.Add(N);
