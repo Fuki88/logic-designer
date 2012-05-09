@@ -142,3 +142,5 @@ C:\Documents and Settings\Termi\Desktop\FIIT_LETNY_2012\Timovy projekt\TIMAK_FIN
 C:\Documents and Settings\Termi\Desktop\FIIT_LETNY_2012\Timovy projekt\TIMAK_FINAL\Logic Designer\Logic Designer\obj\x86\Debug\Logic_Designer.verifikacia.verifikacia.resources
 C:\Documents and Settings\Termi\Desktop\FIIT_LETNY_2012\Timovy projekt\TIMAK_FINAL\Logic Designer\Logic Designer\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Documents and Settings\Termi\Desktop\FIIT_LETNY_2012\Timovy projekt\TIMAK_FINAL\Logic Designer\Logic Designer\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Debug\Logic Designer.exe
+D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Debug\Logic Designer.pdb
