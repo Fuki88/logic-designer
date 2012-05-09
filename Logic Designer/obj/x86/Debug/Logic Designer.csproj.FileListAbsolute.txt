@@ -124,3 +124,21 @@ D:\work\Logic Designer - final\Logic Designer\obj\x86\Debug\Logic_Designer.Prope
 D:\work\Logic Designer - final\Logic Designer\obj\x86\Debug\Logic_Designer.verifikacia.verifikacia.resources
 D:\work\Logic Designer - final\Logic Designer\obj\x86\Debug\GenerateResource.read.1.tlog
 D:\work\Logic Designer - final\Logic Designer\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\Termi\Desktop\FIIT_LETNY_2012\Timovy projekt\TIMAK_FINAL\Logic Designer\Logic Designer\obj\x86\Debug\Logic Designer.exe
+C:\Documents and Settings\Termi\Desktop\FIIT_LETNY_2012\Timovy projekt\TIMAK_FINAL\Logic Designer\Logic Designer\obj\x86\Debug\Logic Designer.pdb
+C:\Documents and Settings\Termi\Desktop\FIIT_LETNY_2012\Timovy projekt\TIMAK_FINAL\Logic Designer\Logic Designer\bin\Debug\Logic Designer.exe
+C:\Documents and Settings\Termi\Desktop\FIIT_LETNY_2012\Timovy projekt\TIMAK_FINAL\Logic Designer\Logic Designer\bin\Debug\Logic Designer.pdb
+C:\Documents and Settings\Termi\Desktop\FIIT_LETNY_2012\Timovy projekt\TIMAK_FINAL\Logic Designer\Logic Designer\bin\Debug\TextEditor.pdb
+C:\Documents and Settings\Termi\Desktop\FIIT_LETNY_2012\Timovy projekt\TIMAK_FINAL\Logic Designer\Logic Designer\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Termi\Desktop\FIIT_LETNY_2012\Timovy projekt\TIMAK_FINAL\Logic Designer\Logic Designer\obj\x86\Debug\Logic_Designer.AboutBox1.resources
+C:\Documents and Settings\Termi\Desktop\FIIT_LETNY_2012\Timovy projekt\TIMAK_FINAL\Logic Designer\Logic Designer\obj\x86\Debug\Logic_Designer.Form1.resources
+C:\Documents and Settings\Termi\Desktop\FIIT_LETNY_2012\Timovy projekt\TIMAK_FINAL\Logic Designer\Logic Designer\obj\x86\Debug\Logic_Designer.FrmNazov.resources
+C:\Documents and Settings\Termi\Desktop\FIIT_LETNY_2012\Timovy projekt\TIMAK_FINAL\Logic Designer\Logic Designer\obj\x86\Debug\Digi_graf_modul.frmInfo.resources
+C:\Documents and Settings\Termi\Desktop\FIIT_LETNY_2012\Timovy projekt\TIMAK_FINAL\Logic Designer\Logic Designer\obj\x86\Debug\Digi_graf_modul.FrmNazov.resources
+C:\Documents and Settings\Termi\Desktop\FIIT_LETNY_2012\Timovy projekt\TIMAK_FINAL\Logic Designer\Logic Designer\obj\x86\Debug\Digi_graf_modul.graf_modul.resources
+C:\Documents and Settings\Termi\Desktop\FIIT_LETNY_2012\Timovy projekt\TIMAK_FINAL\Logic Designer\Logic Designer\obj\x86\Debug\Digi_graf_modul.NodeCtrl.resources
+C:\Documents and Settings\Termi\Desktop\FIIT_LETNY_2012\Timovy projekt\TIMAK_FINAL\Logic Designer\Logic Designer\obj\x86\Debug\Logic_Designer.NumberedRichTextBox.resources
+C:\Documents and Settings\Termi\Desktop\FIIT_LETNY_2012\Timovy projekt\TIMAK_FINAL\Logic Designer\Logic Designer\obj\x86\Debug\Logic_Designer.Properties.Resources.resources
+C:\Documents and Settings\Termi\Desktop\FIIT_LETNY_2012\Timovy projekt\TIMAK_FINAL\Logic Designer\Logic Designer\obj\x86\Debug\Logic_Designer.verifikacia.verifikacia.resources
+C:\Documents and Settings\Termi\Desktop\FIIT_LETNY_2012\Timovy projekt\TIMAK_FINAL\Logic Designer\Logic Designer\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\Termi\Desktop\FIIT_LETNY_2012\Timovy projekt\TIMAK_FINAL\Logic Designer\Logic Designer\obj\x86\Debug\GenerateResource.write.1.tlog
