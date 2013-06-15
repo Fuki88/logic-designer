@@ -34,3 +34,5 @@ D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Release\GenerateResource.read.1.
 D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Release\GenerateResource.write.1.tlog
 D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Release\Logic Designer.exe
 D:\Zdrojaky\_DIGITALISTS\Logic Designer\obj\x86\Release\Logic Designer.pdb
+D:\work\LogicDesigner\Logic Designer\obj\x86\Release\Logic Designer.exe
+D:\work\LogicDesigner\Logic Designer\obj\x86\Release\Logic Designer.pdb
